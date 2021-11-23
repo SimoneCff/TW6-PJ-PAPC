@@ -1,17 +1,16 @@
-window.onload = () => {
-    'use strict';
+window.addEventListener('load', e => {
+    new PWAConfApp();
+    registerSW(); (1)
+});
 
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-            .register('./service-worker.js').then(function (registration) {
-
-            // Service worker registered correctly.
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        },
-            function (err) {
-
-                // Troubles in registering the service worker. :(
-                console.log('ServiceWorker registration failed: ', err);
-            });
+async function registerSW() { (1)
+    if ('serviceWorker' in navigator) { (2)
+        try {
+            await navigator.serviceWorker.register('./sw.js'); (3)
+        } catch (e) {
+            alert('ServiceWorker registration failed. Sorry about that.'); (4)
+        }
+    } else {
+        document.querySelector('.alert').removeAttribute('hidden'); (5)
     }
 }
