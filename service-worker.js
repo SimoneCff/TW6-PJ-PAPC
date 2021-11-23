@@ -8,7 +8,8 @@ let filesToCache = [
     'images/mobo.png',
     'images/psu.png',
     'images/ram.png',
-    'images/icon.png'
+    'images/icon.png',
+    'images/icon1.png'
 ];
 /* Start the service worker and cache all of the app's content */
 console.log('Service worker online');
