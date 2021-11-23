@@ -1,0 +1,9 @@
+{
+  "name": "Pick-a-PC",
+  "short_name" : "PAPC",
+  "lang": "it-IT",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "white",
+  "theme_color": "white"
+}
