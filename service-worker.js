@@ -7,7 +7,8 @@ let filesToCache = [
     'images/cpu.png',
     'images/mobo.png',
     'images/psu.png',
-    'images/ram.png'
+    'images/ram.png',
+    'images/icon.png'
 ];
 /* Start the service worker and cache all of the app's content */
 self.addEventListener('install', function(e) {
