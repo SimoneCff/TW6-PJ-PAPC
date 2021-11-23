@@ -1,8 +1,13 @@
-let cacheName = 'pwa01';
+let cacheName = 'papc';
 let filesToCache = [
     'index.html',
+    'manifest.json',
     'css/style.css',
-    'js/main.js'
+    'js/main.js',
+    'images/cpu.png',
+    'images/mobo.png',
+    'images/psu.png',
+    'images/ram.png'
 ];
 /* Start the service worker and cache all of the app's content */
 self.addEventListener('install', function(e) {
