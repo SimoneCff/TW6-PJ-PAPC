@@ -11,6 +11,8 @@ let filesToCache = [
     'images/icon.png'
 ];
 /* Start the service worker and cache all of the app's content */
+console.log('Service worker online');
+
 self.addEventListener('install', function(e) {
     e.waitUntil(
         caches.open(cacheName).then(function(cache) {
