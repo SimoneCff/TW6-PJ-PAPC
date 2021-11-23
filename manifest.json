@@ -3,7 +3,15 @@
   "short_name" : "PAPC",
   "lang": "it-IT",
   "start_url": "index.html",
+  "scope" : "/",
   "display": "standalone",
   "background_color": "white",
-  "theme_color": "white"
+  "theme_color": "white",
+  "icons": [
+    {
+      "src": "images/icon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
 }
