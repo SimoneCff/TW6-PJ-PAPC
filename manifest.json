@@ -2,7 +2,7 @@
   "name": "Pick-a-PC",
   "short_name" : "PAPC",
   "lang": "it-IT",
-  "start_url": ".",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "white",
   "theme_color": "white",
@@ -15,8 +15,7 @@
     {
       "src": "images/icon.png",
       "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
       "src": "images/icon1.png",

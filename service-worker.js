@@ -7,8 +7,6 @@ let staticAssets = [
     'images/case.png',
     'images/cooling.png',
     'images/cpu.png',
-    'images/icon.png',
-    'images/icon1.png',
     'images/memory.png',
     'images/mobo.png',
     'images/psu.png',

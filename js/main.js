@@ -14,4 +14,9 @@ window.onload = () => {
                 console.log('ServiceWorker registration failed: ', err);
             });
     }
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('./service-worker.js');
+        });
+    }
 }
