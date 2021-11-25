@@ -1,6 +1,5 @@
 let cacheName = 'papc';
-let staticAssets = [
-    './',
+let filesToCache = [
     'index.html',
     'css/style.css',
     'js/main.js',
@@ -12,37 +11,57 @@ let staticAssets = [
     'images/psu.png',
     'images/ram.png'
     ];
+self.addEventListener('install', function(event) {
+    event.waitUntil(
+        caches.open(cacheName).then(function(cache) {
+            console.log('Opened cache');
+            return cache.addAll(filesToCache);
+        })
+    );
+});
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        caches.match(event.request)
+            .then(function(response) {
+                // Cache hit - return response
+                if (response) {
+                    return response;
+                }
 
-self.addEventListener('install', async event => {
-    console.log('install event');
-    const cache = await caches.open(cacheName);
-    await cache.addAll(staticAssets);
+                return fetch(event.request).then(
+                    function(response) {
+                        // Check if we received a valid response
+                        if(!response || response.status !== 200 || response.type !== 'basic') {
+                            return response;
+                        }
+
+                        var responseToCache = response.clone();
+
+                        caches.open('papc')
+                            .then(function(cache) {
+                                cache.put(event.request, responseToCache);
+                            });
+
+                        return response;
+                    }
+                );
+            })
+    );
 });
 
-self.addEventListener('fetch', async event => {
-    console.log('fetch event');
-    const req = event.request;
-    if (/.*(json)$/.test(req.url)) {
-        event.respondWith(networkFirst(req));
-    } else {
-        event.respondWith(cacheFirst(req));
-    }
+self.addEventListener('activate', function(event) {
+
+    var cacheAllowlist = ['pages-cache-v1', 'blog-posts-cache-v1'];
+
+    event.waitUntil(
+        caches.keys().then(function(cacheNames) {
+            return Promise.all(
+                cacheNames.map(function(cacheName) {
+                    if (cacheAllowlist.indexOf(cacheName) === -1) {
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        })
+    );
 });
-
-async function cacheFirst(req) {
-    const cache = await caches.open(cacheName);
-    const cachedResponse = await cache.match(req);
-    return cachedResponse || networkFirst(req);
-}
-
-async function networkFirst(req) {
-    const cache = await caches.open(cacheName);
-    try { (1)
-        const fresh = await fetch(req);
-        cache.put(req, fresh.clone());
-        return fresh;
-    } catch (e) { (2)
-        const cachedResponse = await cache.match(req);
-        return cachedResponse;
-    }
-}
