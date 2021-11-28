@@ -20,3 +20,29 @@ window.onload = () => {
         });
     }
 }
+
+function openhtml(x){
+    switch(x) {
+        case'cpu':
+            console.log('cliccato cpu');
+            break;
+        case'mobo':
+            console.log('cliccato mobo');
+            break;
+        case'psu':
+            console.log('cliccato psu');
+            break;
+        case'ram':
+            console.log('cliccato ram');
+            break;
+        case'memory':
+            console.log('cliccato memory');
+            break;
+        case'cooling':
+            console.log('cliccato cooling');
+            break;
+        case'case':
+            console.log('cliccato case');
+            break;
+    }
+}
