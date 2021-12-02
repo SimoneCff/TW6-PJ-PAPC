@@ -1,6 +1,7 @@
 let cacheName = 'papc';
 let filesToCache = [
     'index.html',
+    'manifest.json',
     'css/style.css',
     'js/main.js',
     'images/case.png',
