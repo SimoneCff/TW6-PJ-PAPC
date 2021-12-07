@@ -16,15 +16,16 @@ window.onload = () => {
     }
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function () {
-            navigator.serviceWorker.register('./service-worker.js');
+            navigator.serviceWorker.register('/service-worker.js');
         });
     }
 }
 
 function openhtml(x){
+    var Window = window.open("", "Window", "width=200, height=100");
     switch(x) {
         case'cpu':
-            console.log('cliccato cpu');
+            Window.opener.document.open("./cpu.html")
             break;
         case'mobo':
             console.log('cliccato mobo');
@@ -46,3 +47,4 @@ function openhtml(x){
             break;
     }
 }
+
