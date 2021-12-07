@@ -22,10 +22,11 @@ window.onload = () => {
 }
 
 function openhtml(x){
-    var Window = window.open("", "Window", "width=200, height=100");
+    var tab = document.createElement("IFRAME");
     switch(x) {
         case'cpu':
-            Window.opener.document.open("./cpu.html")
+            tab.setAttribute("src","www.google.com");
+            document.body.appendChild(x);
             break;
         case'mobo':
             console.log('cliccato mobo');
