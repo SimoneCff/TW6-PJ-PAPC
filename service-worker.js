@@ -13,7 +13,8 @@ let filesToCache = [
     'images/psu.png',
     'images/ram.png',
     'images/icon.png',
-    'images/icon1.png'
+    'images/icon1.png',
+    'images/icon.icon'
     ];
 self.addEventListener('install', function(event) {
     event.waitUntil(
