@@ -15,6 +15,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -27,6 +29,7 @@
     confrontare i prezzi migliori in rete e controllare se le componenti
     scelte sono compatibili tra loro.<br/>
 <h2>SCEGLI DA QUALE COMPONENTE INIZIARE</h2>
+    <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#cart" width="160"><div>Carrello</div></button>
 </div>
 <div class="col text-center">
     <button type="button" class="btn"><img src="images/cpu.png" class="img-rounded" alt="CPU" width="160" onclick="openhtml('cpu')"><div>cpu</div></button>
@@ -37,6 +40,20 @@
     <button type="button" class="btn"><img src="images/cooling.png" class="img-rounded" alt="Cooling" width="160" onclick="openhtml('cooling')"><div>Raffreddamento</div></button>
     <button type="button" class="btn"><img src="images/case.png" class="img-rounded" alt="Case" width="160" onclick="openhtml('case')"><div>Case</div></button>
 </div>
+
+<div class="offcanvas offcanvas-end" id="cart">
+    <div class="offcanvas-header">
+        <h1 class="offcanvas-title">Heading</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <p>Some text lorem ipsum.</p>
+        <p>Some text lorem ipsum.</p>
+        <p>Some text lorem ipsum.</p>
+        <button class="btn btn-secondary" type="button"><div>Checkout</div></button>
+    </div>
+</div>
+
 <script src="js/main.js"></script>
 </body>
 </html>
