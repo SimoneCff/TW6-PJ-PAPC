@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="white">
 
-
-
     <title>Pick-a-Pc</title>
 
     <link rel="manifest" href="manifest.json">
@@ -20,17 +18,17 @@
 </head>
 
 <body>
-<div class="jumbotron text-center">
-<h1>PICK-A-PC!</h1>
+<div class="text-center bg-dark bg-opacity-25">
+    <h1>PICK-A-PC!</h1>
+    <div>
+        Ciao, benvenuto su Pick-a-Pc!<br>
+        Questo sito ti permette di assemblre il tuo pc in perfetta sicurezza,
+        confrontare i prezzi migliori in rete e controllare se le componenti
+        scelte sono compatibili tra loro.<br/>
+    <h2>SCEGLI DA QUALE COMPONENTE INIZIARE</h2>
+    </div>
 </div>
-<div class="col text-center">
-    Ciao, benvenuto su Pick-a-Pc!<br>
-    Questo sito ti permette di assemblre il tuo pc in perfetta sicurezza,
-    confrontare i prezzi migliori in rete e controllare se le componenti
-    scelte sono compatibili tra loro.<br/>
-<h2>SCEGLI DA QUALE COMPONENTE INIZIARE</h2>
-    <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#cart" width="160"><div>Carrello</div></button>
-</div>
+<div class="col text-end"><button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#cart"><div>Carrello</div></button></div>
 <div class="col text-center">
     <button type="button" class="btn"><img src="images/cpu.png" class="img-rounded" alt="CPU" width="160" onclick="openhtml('cpu')"><div>cpu</div></button>
     <button type="button" class="btn"><img src="images/mobo.png" class="img-rounded" alt="mobo" width="160" onclick="openhtml('mobo')"><div>scheda madre</div></button>
@@ -43,14 +41,14 @@
 
 <div class="offcanvas offcanvas-end" id="cart">
     <div class="offcanvas-header">
-        <h1 class="offcanvas-title">Heading</h1>
+        <h1 class="offcanvas-title">Resoconto</h1>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
         <p>Some text lorem ipsum.</p>
         <p>Some text lorem ipsum.</p>
         <p>Some text lorem ipsum.</p>
-        <button class="btn btn-secondary" type="button"><div>Checkout</div></button>
+        <button class="btn btn-primary " type="button"><div>Checkout</div></button>
     </div>
 </div>
 
