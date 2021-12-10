@@ -1,6 +1,13 @@
 let cacheName = 'papc';
 let filesToCache = [
     'index.html',
+    'case.html',
+    'cooling.html',
+    'cpu.html',
+    'memory.html',
+    'mobo.html',
+    'psu.html',
+    'ram.html',
     'service-worker.js',
     'manifest.json',
     'css/style.css',
