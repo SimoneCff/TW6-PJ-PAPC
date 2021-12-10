@@ -21,6 +21,7 @@ let filesToCache = [
     'images/ram.png',
     'images/icon.jpeg',
     'images/icon1.jpeg',
+    'images/logo.png',
     'images/icon.icon'
     ];
 self.addEventListener('install', function(event) {
