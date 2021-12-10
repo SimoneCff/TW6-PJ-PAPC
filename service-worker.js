@@ -19,8 +19,8 @@ let filesToCache = [
     'images/mobo.png',
     'images/psu.png',
     'images/ram.png',
-    'images/icon.png',
-    'images/icon1.png',
+    'images/icon.jpeg',
+    'images/icon1.jpeg',
     'images/icon.icon'
     ];
 self.addEventListener('install', function(event) {
