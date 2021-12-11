@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from extensions import client
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 
@@ -12,7 +11,7 @@ def sw():
     return app.send_static_file('service-worker.js')
 
 if __name__ == '__name__':
-    app.run(debug=True)
+    app.run(debug=True, host="192.168.1.117", port=8080)
 
 
 
