@@ -5,7 +5,5 @@ client = MongoClient("mongodb+srv://admin:admin@papc.q16vr.mongodb.net/myFirstDa
 db = client["PAPC"]
 cpu = db["CPU"]
 
-
-
 for x in cpu.find():
     print(x)

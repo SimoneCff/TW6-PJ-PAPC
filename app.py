@@ -38,7 +38,6 @@ def ram():
 def sw():
     return app.send_static_file('service-worker.js')
 
-
 if __name__ == '__name__':
     app.run(debug=True)
 
