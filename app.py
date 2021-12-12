@@ -1,6 +1,9 @@
 from flask import Flask, render_template
+from forms import Searchfor
+from config import Config
 
 app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
+app.config.from_object(Config)
 
 @app.route('/')
 def index():
@@ -8,7 +11,8 @@ def index():
 
 @app.route('/cpu')
 def cpu():
-    return render_template("cpu.html")
+    form = Searchfor()
+    return render_template("cpu.html", form=form)
 
 @app.route('/case')
 def case():

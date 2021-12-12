@@ -16,6 +16,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-primary bg-opacity-25">
-<div>Processore</div>
+
+{% block content %}
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.search.label }}<br>
+            {{ form.search(size=32) }}
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
+
 </body>
 </html>
