@@ -1,8 +1,8 @@
 from flask_pymongo import MongoClient
 import certifi
+import os
 
-client = MongoClient("mongodb+srv://admin:admin@papc.q16vr.mongodb.net/PAPC?retryWrites=true&w=majority",
-                     tlsCAFile=certifi.where())
+client = MongoClient(os.environ.get("MONGODB"),tlsCAFile=certifi.where())
 
 db = client["PAPC"]
 
