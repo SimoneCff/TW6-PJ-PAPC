@@ -13,7 +13,8 @@ let filesToCache = [
     '/images/icon.jpg',
     '/images/icon1.jpg',
     '/images/logo.png',
-    '/images/icon.ico'
+    '/images/icon.ico',
+    './templates/index.html'
     ];
 self.addEventListener('install', function(event) {
     event.waitUntil(
