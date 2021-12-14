@@ -1,7 +1,6 @@
 let cacheName = 'papc';
 let filesToCache = [
     '/',
-    'sw.js',
     '/css/style.css',
     '/js/main.js',
     '/images/case.png',
@@ -15,7 +14,6 @@ let filesToCache = [
     '/images/icon1.jpg',
     '/images/logo.png',
     '/images/icon.ico',
-    './templates/index.html'
     ];
 self.addEventListener('install', function(event) {
     event.waitUntil(
