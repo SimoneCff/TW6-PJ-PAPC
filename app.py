@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, make_response, send_from_directory
+from flask import Flask, render_template, request
 from forms import Searchfor
 from config import Config
 from db import SearchIntoDb
@@ -52,11 +52,9 @@ def ram():
     return render_template("ram.html")
 
 
-@app.route('/sw.js')
+@app.route('/sw.js', methods=['GET'])
 def sw():
-    response = make_response(send_from_directory('static', filename='sw.js'))
-    response.headers['Content-Type'] = 'application/javascript'
-    return response
+    return app.send_static_file('sw.js')
 
 
 if __name__ == '__name__':
