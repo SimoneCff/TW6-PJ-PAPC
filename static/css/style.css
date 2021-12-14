@@ -1,13 +1,6 @@
 .sans{
     font-family: "sans-serif" ,Impact
 }
-.iframesize{
-    width:100%;
-    border:0;
-    position:;
-    height:auto;
-    left:0;
-}
 
 .logo{
     display: block;
@@ -22,4 +15,9 @@
     padding: 3px;
     background-color: DarkSalmon;
     color: white;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
 }
