@@ -1,7 +1,6 @@
 window.onload = () => {
     'use strict';
 
-
 // service-worker:
     if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/sw.js').then(function (registration) {
@@ -9,6 +8,8 @@ window.onload = () => {
             }).catch(function (err) {
                 console.log('ServiceWorker registration failed: ', err);
             });
+    } else {
+        console.log("sw not working");
     };
 }
 
