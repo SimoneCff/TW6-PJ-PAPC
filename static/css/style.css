@@ -23,3 +23,8 @@ html {
 body {
     min-height: 100%;
 }
+
+.iframex{
+    width: 100%;
+    height: auto;
+}

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="white">
 
     <title>Pick-a-Pc</title>
@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js"></script>
 </head>
 
-<body size="100%">
+<body style="size: 100px">
 <div class="bg-primary bg-opacity-75">
     <img src="{{ url_for('static', filename='images/logo.png')}}" class="logo">
 </div>
@@ -67,15 +67,15 @@
 
 
 <div class="row embed-responsive embed-responsive-16by9">
-    <iframe id="iframe" class="embed-responsive-item"></iframe>
+    <iframe id="iframe" class="embed-responsive-item iframex"></iframe>
 </div>
 
+<footer>
+    <div class="footer">
+    dio
+</div>
+</footer>
 
 <script src="{{ url_for('static', filename='js/main.js')}}"></script>
 </body>
-
-<div class="footer">
-    wwew
-</div>
-
 </html>

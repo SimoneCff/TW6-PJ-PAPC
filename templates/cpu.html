@@ -20,13 +20,23 @@
 {% block content %}
 <div>
     <div class="row">
-        <div class="col bg-light"></div>
+
+        <div class="col bg-light h-100 d-inline-block">
+        <select class="form-select">
+        </select>
+        </div>
+
         <div class="text-center col-lg-8">
              <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
             {{ form.search(size=60) }}
             {{ form.submit(class_="btn btn-primary") }}
                    </form>
+            <hr>
+            {%for x in queri %}
+            <h1> Nome: {{x[0]}}, Marca: {{x[1]}}, Costo: {{x[2]}} </h1>
+            <hr>
+            {% endfor %}
         </div>
         <div class="col"></div>
 

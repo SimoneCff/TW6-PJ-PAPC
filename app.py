@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from forms import Searchfor
 from config import Config
 from db import SearchIntoDb
+from bson.json_util import dumps
 
 app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
 app.config.from_object(Config)
@@ -17,8 +18,11 @@ def cpu():
     form = Searchfor()
     if form.validate_on_submit():
         query = SearchIntoDb("CPU", request.form.get('search')).findquery()
+        quer= list()
         for x in query:
-            print(x)
+            quer.insert(1,[dumps(x['name']), dumps(x['marca']), dumps(x['COSTO'])])
+        return render_template("cpu.html", form=form, queri=quer)
+
     return render_template("cpu.html", form=form)
 
 
