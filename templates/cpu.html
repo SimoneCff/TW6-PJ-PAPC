@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="white">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
 
     <title>Pick-a-Pc</title>
 
@@ -18,13 +18,20 @@
 <body class="bg-primary bg-opacity-25">
 
 {% block content %}
-    <form class="text-center" action="" method="post" novalidate>
+<div>
+    <div class="row">
+        <div class="col bg-light"></div>
+        <div class="text-center col-lg-8">
+             <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
-        <p>
             {{ form.search(size=60) }}
-            {{ form.submit() }}
-        </p>
-    </form>
+            {{ form.submit(class_="btn btn-primary") }}
+                   </form>
+        </div>
+        <div class="col"></div>
+
+    </div>
+  </div>
 {% endblock %}
 
 </body>
