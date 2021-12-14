@@ -1,19 +1,19 @@
 let cacheName = 'papc';
 let filesToCache = [
     '/',
-    '/static/css/style.css',
-    '/static/js/main.js',
-    '/static/images/case.png',
-    '/static/images/cooling.png',
-    '/static/images/cpu.png',
-    '/static/images/memory.png',
-    '/static/images/mobo.png',
-    '/static/images/psu.png',
-    '/static/images/ram.png',
-    '/static/images/icon.jpeg',
-    '/static/images/icon1.jpeg',
-    '/static/images/logo.png',
-    '/static/images/icon.icon'
+    '/css/style.css',
+    '/js/main.js',
+    '/images/case.png',
+    '/images/cooling.png',
+    '/images/cpu.png',
+    '/images/memory.png',
+    '/images/mobo.png',
+    '/images/psu.png',
+    '/images/ram.png',
+    '/images/icon.jpg',
+    '/images/icon1.jpg',
+    '/images/logo.png',
+    '/images/icon.ico'
     ];
 self.addEventListener('install', function(event) {
     event.waitUntil(
