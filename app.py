@@ -10,7 +10,6 @@ app.config.from_object(Config)
 app.config['CACHE_TYPE'] = 'simple'
 
 @app.route('/')
-
 def index():
     return render_template("index.html")
 
@@ -25,10 +24,6 @@ def cpu():
         for x in query:
             quer.insert(1,[dumps(x['name']), dumps(x['marca']), dumps(x['COSTO']), dumps(x['_id'])])
         return render_template("cpu.html", form=form1, queri=quer)
-
-    if request.method == 'POST':
-        if request.form['Compra'] == 'Compra':
-            print(request.form.get['val'])
 
     return render_template("cpu.html", form=form1)
 
