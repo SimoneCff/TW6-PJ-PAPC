@@ -14,6 +14,14 @@ let filesToCache = [
     '/images/icon1.jpg',
     '/images/logo.png',
     '/images/icon.ico',
+    './templates/index.html',
+    './templates/cpu.html',
+    './templates/case.html',
+    './templates/cooling.html',
+    './templates/memory.html',
+    './templates/mobo.html',
+    './templates/psu.html',
+    './templates/ram.html'
     ];
 self.addEventListener('install', function(event) {
     event.waitUntil(
