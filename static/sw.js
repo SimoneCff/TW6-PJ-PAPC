@@ -1,6 +1,5 @@
 let cacheName = 'papc';
 let filesToCache = [
-    '/',
     '/css/style.css',
     '/js/main.js',
     '/images/case.png',
