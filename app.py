@@ -10,7 +10,6 @@ app.config.from_object(Config)
 app.config['CACHE_TYPE'] = 'simple'
 
 @app.route('/')
-
 def index():
     return render_template("index.html")
 
