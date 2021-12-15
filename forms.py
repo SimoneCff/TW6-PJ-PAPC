@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, SelectField
+from wtforms import StringField, SubmitField, HiddenField
 from wtforms.validators import DataRequired
 
 class Searchfor(FlaskForm):
@@ -7,5 +7,4 @@ class Searchfor(FlaskForm):
     submit = SubmitField('Cerca')
 
 class CPUSelect(FlaskForm):
-    tipo = SelectField('Marca', choices=['AMD','INTEL'])
     submit = SubmitField('Cerca')
