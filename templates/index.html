@@ -19,7 +19,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js"></script>
 </head>
 
-<body style="size: 100px">
+<body>
+
 <div class="bg-primary bg-opacity-75">
     <img src="{{ url_for('static', filename='images/logo.png')}}" class="logo">
 </div>
@@ -65,12 +66,19 @@
     </div>
 </div>
 
-
-
-<div class="row embed-responsive embed-responsive-16by9">
-    <iframe id="iframe" class="embed-responsive-item iframex"></iframe>
+<div class="text-center" >
+    <iframe id="iframe" width="90%" height="600"></iframe>
 </div>
 
 <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+<div class="fixed-bottom">
+<footer>
+    <div class="text-center" >
+    sto cazzo
+    </div>
+</footer>
+</div>
+
 </body>
 </html>
