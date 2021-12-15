@@ -18,7 +18,7 @@ def cpu():
     form = Searchfor()
     if form.validate_on_submit():
         query = SearchIntoDb("CPU", request.form.get('search')).findquery()
-        quer= list()
+        quer = list()
         for x in query:
             quer.insert(1,[dumps(x['name']), dumps(x['marca']), dumps(x['COSTO'])])
         return render_template("cpu.html", form=form, queri=quer)

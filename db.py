@@ -13,4 +13,4 @@ class SearchIntoDb():
         self.__query = query
 
     def findquery(self):
-        return db[self.__db].find({"name": self.__query})
+        return db[self.__db].find({"name": {"$regex": self.__query}})
