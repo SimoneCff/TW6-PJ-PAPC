@@ -13,68 +13,20 @@ let filesToCache = [
     '/images/icon.jpg',
     '/images/icon1.jpg',
     '/images/logo.png',
-    '/images/icon.ico',
-    './templates/index.html',
-    './templates/cpu.html',
-    './templates/case.html',
-    './templates/cooling.html',
-    './templates/memory.html',
-    './templates/mobo.html',
-    './templates/psu.html',
-    './templates/ram.html'
-    ];
+    '/images/icon.ico']
+
 self.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open(cacheName).then(function(cache) {
-            console.log('Opened cache');
             return cache.addAll(filesToCache);
         })
     );
 });
 
-self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        caches.match(event.request)
-            .then(function(response) {
-                // Cache hit - return response
-                if (response) {
-                    return response;
-                }
-
-                return fetch(event.request).then(
-                    function(response) {
-                        // Check if we received a valid response
-                        if(!response || response.status !== 200 || response.type !== 'basic') {
-                            return response;
-                        }
-
-                        var responseToCache = response.clone();
-
-                        caches.open('papc')
-                            .then(function(cache) {
-                                cache.put(event.request, responseToCache);
-                            });
-
-                        return response;
-                    }
-                );
-            })
-    );
-});
-
-self.addEventListener('activate', function(event) {
-
-    var cacheAllowlist = ['pages-cache-v1', 'blog-posts-cache-v1'];
-
-    event.waitUntil(
-        caches.keys().then(function(cacheNames) {
-            return Promise.all(
-                cacheNames.map(function(cacheName) {
-                    if (cacheAllowlist.indexOf(cacheName) === -1) {
-                        return caches.delete(cacheName);
-                    }
-                })
-            );
+self.addEventListener('fetch', function(e) {
+    e.respondWith(
+        caches.match(e.request).then(function(response) {
+            return response || fetch(e.request);
         })
     );
 });
