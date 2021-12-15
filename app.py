@@ -7,12 +7,10 @@ from bson.json_util import dumps
 
 app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
 app.config.from_object(Config)
-app.config['CACHE_TYPE'] = 'simple'
 
 @app.route('/')
 def index():
     return render_template("index.html")
-
 
 @app.route('/cpu',  methods=['GET', 'POST'])
 def cpu():
