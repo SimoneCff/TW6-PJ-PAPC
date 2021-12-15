@@ -26,10 +26,6 @@ def cpu():
             quer.insert(1,[dumps(x['name']), dumps(x['marca']), dumps(x['COSTO']), dumps(x['_id'])])
         return render_template("cpu.html", form=form1, queri=quer)
 
-    if request.method == 'POST':
-        if request.form['Compra'] == 'Compra':
-            print(request.form.get['val'])
-
     return render_template("cpu.html", form=form1)
 
 
