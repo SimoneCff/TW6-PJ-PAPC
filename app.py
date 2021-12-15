@@ -3,17 +3,14 @@ from forms import Searchfor
 from config import Config
 from db import SearchIntoDb
 from bson.json_util import dumps
-from flask_caching import Cache
+
 
 app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
 app.config.from_object(Config)
 app.config['CACHE_TYPE'] = 'simple'
 
-cache = Cache(app)
-
-
 @app.route('/')
-@cache.cached(timeout=10)
+
 def index():
     return render_template("index.html")
 
@@ -59,12 +56,6 @@ def psu():
 @app.route('/ram')
 def ram():
     return render_template("ram.html")
-
-
-@app.route('/sw.js', methods=['GET'])
-def sw():
-    return app.send_static_file('sw.js')
-
 
 if __name__ == '__name__':
     app.run(debug=True, ssl_contex='adhoc')
