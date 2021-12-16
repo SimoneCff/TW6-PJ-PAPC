@@ -34,7 +34,7 @@
             <hr>
             {%for x in queri %}
             <h3> Nome: {{x[0]}}, Marca: {{x[1]}}, Costo: {{x[2]}} </h3>
-           <button id="val" name="val" onclick="sendpost('{{x[3]}}')">Compra</button>
+           <button id="val" name="val" value="val" onclick="sendpost('{{x[3]}}')">Compra</button>
             <hr>
             {% endfor %}
         </div>
@@ -47,7 +47,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
   function sendpost(x) {
-      $.post(null,x)
+      return $.post(null,x)
   }
 </script>
  </body>
