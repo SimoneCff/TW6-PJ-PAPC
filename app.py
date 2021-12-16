@@ -24,8 +24,7 @@ def cpu():
         return render_template("cpu.html", form=form1, queri=quer)
 
     if request.method == 'POST':
-            print(request.form.get('val2'))
-
+            print(request.values)
 
     return render_template("cpu.html", form=form1)
 
