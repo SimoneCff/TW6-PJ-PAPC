@@ -33,7 +33,7 @@
                    </form>
             <hr>
             {%for x in queri %}
-            <h3> Nome: {{x[0]}}, Marca: {{x[1]}}, Costo: {{x[2]}} </h3>
+            <h1> Nome: {{x[0]}}, Marca: {{x[1]}}, Costo: {{x[2]}} </h1>
             <form method="post" name="Compra" id="Compra">
                 <input type="submit" name="val" value="Compra" class="btn btn-secondary">
                 <input type="hidden" name="val" id="val" value="{{x[3]}}">

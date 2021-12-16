@@ -26,15 +26,14 @@
 </div>
 
 
-<div class="text-center bg-primary bg-opacity-50 row">
+<div class="text-center bg-primary bg-opacity-50">
     <div>
         Ciao, benvenuto su Pick-a-Pc!<br>
-        Questo sito ti permette di assemblre il tuo pc in perfetta sicurezza,
-        confrontare i prezzi migliori in rete e controllare se le componenti
-        scelte sono compatibili tra loro.<br/>
+        Questo sito ti permette di assemblare il PC dei tuoi sogni, quindi in base alle tue esigenze, e tutto ciò in perfetta sicurezza,
+        inoltre ti permette di confrontare i prezzi migliori in rete e controllare se le componenti scelte sono compatibili tra loro.<br/>
 
         <div class="fst-italic">
-            <h2 class="sans">SCEGLI DA QUALE COMPONENTE INIZIARE</h2>
+            <h2 class="sans">ORA TOCCA A TE, SCEGLI DA QUALE COMPONENTE INIZIARE!</h2>
         </div>
 
     </div>
@@ -52,6 +51,8 @@
     <button type="button" class="btn" data-src="{{url_for('cooling')}}"><img src="{{ url_for('static', filename='images/cooling.png')}}" class="img-rounded" alt="Cooling" width="80" ><div>Raffreddamento</div></button>
     <button type="button" class="btn" data-src="{{url_for('case')}}"><img src="{{ url_for('static', filename='images/case.png')}}" class="img-rounded" alt="Case" width="80"><div>Case</div></button>
 </div>
+
+<hr>
 
 <div class="offcanvas offcanvas-end" id="cart">
     <div class="offcanvas-header">
@@ -72,13 +73,14 @@
 
 <script src="{{ url_for('static', filename='js/main.js')}}"></script>
 
-<div class="fixed-bottom">
+<hr>
+
 <footer>
-    <div class="text-center" >
-    sto cazzo
+    <div class="text-center">
+    <h5>Napoli, 2021/22</h5>
+        <h6>Tutti i diritti riservati.</h6>
     </div>
 </footer>
-</div>
 
 </body>
 </html>
