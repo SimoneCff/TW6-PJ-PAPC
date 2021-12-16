@@ -34,7 +34,7 @@
             <hr>
             {%for x in queri %}
             <h3> Nome: {{x[0]}}, Marca: {{x[1]}}, Costo: {{x[2]}} </h3>
-           <button id="val" name="val" value="val" onclick="sendpost('{{x[3]}}')">Compra</button>
+           <button class="btn btn-secondary" id="val" name="val" value="val" onclick="sendpost('{{x[3]}}')">Compra</button>
             <hr>
             {% endfor %}
         </div>
