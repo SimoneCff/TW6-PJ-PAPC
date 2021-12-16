@@ -24,12 +24,8 @@ def cpu():
         return render_template("cpu.html", form=form1, queri=quer)
 
     if request.method == 'POST':
-        if request.form['Compra'] == 'Compra':
-            print(request.form.get['val'])
-
+        print(request.form.get('vali'))
     return render_template("cpu.html", form=form1)
-
-
 
 @app.route('/case')
 def case():
