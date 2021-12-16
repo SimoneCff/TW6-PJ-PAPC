@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from forms import Searchfor
+from forms import Searchfor, CPUSelect
 from config import Config
 from db import SearchIntoDb
 from bson.json_util import dumps
@@ -17,6 +17,7 @@ def index():
 @app.route('/cpu', methods=['POST', 'GET'])
 def cpu():
     form1 = Searchfor()
+    form2 = CPUSelect()
     quer = list()
 
     if form1.validate_on_submit():
@@ -32,7 +33,7 @@ def cpu():
         x = x.split('"', 1)[0]
         print(x)
 
-    return render_template("cpu.html", form=form1)
+    return render_template("cpu.html", form=form1, form2=form2)
 
 
 @app.route('/case')
