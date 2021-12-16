@@ -34,10 +34,7 @@
             <hr>
             {%for x in queri %}
             <h3> Nome: {{x[0]}}, Marca: {{x[1]}}, Costo: {{x[2]}} </h3>
-            <form method="post" name="Compra" id="Compra">
-                <input type="submit" name="val" value="Compra" class="btn btn-secondary">
-                <input type="hidden" name="val" id="val" value="{{x[3]}}">
-            </form>
+            <button id="val" name="val" value="{{x[3]}}">Compra</button>
             <hr>
             {% endfor %}
         </div>
@@ -49,18 +46,14 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    $(document).on('submit','#buyD',function(e){
-    e.preventDefault();
-    $.ajax({
-        type:'POST',
-        url:'/cpu',
-        data:{
-            id: $("#val").val()},
-        success:function(){
-            alert('done')
-        }
+    $(document).ready(function() {
+        $("#val").click(function(){
+            $.get('cpu',function(){
+                $("#val").val()
+            })
+            console.log("fatto")
+        })
     })
-})
 </script>
 
  </body>
