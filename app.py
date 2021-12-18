@@ -25,7 +25,11 @@ def cpu():
 
         for x in query:
             quer.insert(1, [dumps(x['name']), dumps(x['marca']), dumps(x['COSTO']), dumps(x['_id'])])
-        return render_template("cpu.html", form=form1, queri=quer)
+        return render_template("cpu.html", form=form1, form2=form2, queri=quer)
+
+    if form2.is_submitted():
+        print(request.form.get('minmonet'))
+        print(request.form.get('maxmonet'))
 
     if request.method == 'POST':
         x = str(request.form.to_dict())
