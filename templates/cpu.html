@@ -16,17 +16,43 @@
 </head>
 
 <body class="bg-primary bg-opacity-25">
-
 {% block content %}
 <div>
     <div class="row">
-
-        <div class="col bg-light h-100 d-inline-block">
+        <div class="col bg-light h-140 d-inline-block">
             <form action="" method="post" novalidate>
                 {{form.hidden_tag()}}
+                <div class="text-center">
+                <img src="{{ url_for('static', filename='images/cpu.png')}}" class="img-rounded" alt="CPU" width="80">
+                    <h4>CPU</h4>
+                    </div> <hr>
+                <h5> Marca : </h5>
+                  {{form2.AMD()}}
+                  {{form2.AMD.label}} <br>
+                  {{form2.INTEL}}
+                  {{form2.INTEL.label}} <br>
+                <hr>
+
+                <h5> Socket: </h5>
+                {{form2.AM4}}
+                {{form2.AM4.label}} <br>
+                {{form2.lga}}
+                {{form2.lga.label}} <br>
+                <hr>
+
+                <h5> Watt :</h5>
+                {{form2.sixfive}}
+                {{form2.sixfive.label}} <br>
+                {{form2.onehunfive}}
+                {{form2.onehunfive.label}}<br>
+                <hr>
+
+                <h5> Prezzo :</h5>
                   {{form2.minmonet(size=10)}}
                   {{form2.maxmonet(size=10)}}
+
                   {{form2.submitf}}
+
 </form>
         </div>
 
@@ -43,7 +69,6 @@
             <hr>
             {% endfor %}
         </div>
-        <div class="col"></div>
 
     </div>
   </div>

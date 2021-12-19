@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from forms import Searchfor, CPUSelect
 from config import Config
-from db import SearchIntoDb
+from db import SearchIntoDb, SearchviaAttributes
 from bson.json_util import dumps
 
 app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
@@ -19,7 +19,6 @@ def index():
 def cpu():
     form1 = Searchfor()
     form2 = CPUSelect()
-    quer = list()
 
     if request.method == 'POST':
         if request.form.get('val') == 'val':
@@ -27,10 +26,13 @@ def cpu():
             x = x.split('"$oid": "', 1)[1]
             x = x.split('"', 1)[0]
             print(x)
+
         if form2.validate_on_submit():
-            print(request.form.get('minmonet'))
-            print(request.form.get('maxmonet'))
+            quer = list()
+            query = SearchviaAttributes("CPU", request.form.get())
+
         if form1.validate_on_submit():
+            quer = list()
             query = SearchIntoDb("CPU", request.form.get('search')).findquery()
             for x in query:
                 quer.insert(1, [dumps(x['name']), dumps(x['marca']), dumps(x['COSTO']), dumps(x['_id'])])

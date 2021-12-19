@@ -14,3 +14,15 @@ class SearchIntoDb():
 
     def findquery(self):
         return db[self.__db].find({"name": {"$regex": self.__query}})
+
+class SearchviaAttributes():
+    def __init__(self, db, marca, min, max, socket, watt):
+        self.__db = db
+        self.__marca = marca
+        self.__min = min
+        self.__max = max
+        self.__socket = socket
+        self.__watt = watt
+
+    def findqueryattr(self):
+        return db[self.__db].find({"marca": self.__marca, "COSTO": {"$lte" : self.__min, "$gte" : self.__max }, "socket" : self.__socket, "watt" : self.__watt})
