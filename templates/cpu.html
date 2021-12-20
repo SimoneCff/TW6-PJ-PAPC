@@ -18,16 +18,14 @@
 <body class="bg-primary bg-opacity-25 ">
 {% block content %}
 <div>
-
-            <form action="" method="post" novalidate>
-                {{form.hidden_tag()}}
+                {{form2.hidden_tag()}}
 
                 <div class="bg-light sidenav">
                     <div class="text-center">
                          <img src="{{ url_for('static', filename='images/cpu.png')}}" class="img-rounded" alt="CPU" width="80">
                          <h4>CPU</h4>
                          </div> <hr>
-
+              <form action="" method="post" novalidate>
                 <h5> Marca : </h5>
                   {{form2.AMD()}}
                   {{form2.AMD.label}} <br>
@@ -54,8 +52,8 @@
                   {{form2.maxmonet(size=10)}}
 
                   {{form2.submitf(class_="btn btn-info")}}
-                    </div>
-                </form>
+                  </form>
+                </div>
             </div>
 
         <div class="text-center">
@@ -67,7 +65,7 @@
             <hr>
             {%for x in queri %}
             <h3> Nome: {{x[0]}}, Marca: {{x[1]}}, Costo: {{x[2]}} </h3>
-           <button class="btn btn-secondary" id="val" name="val" value="val" onclick="sendpost('{{x[3]}}')">Compra</button>
+            <button class="btn btn-secondary" id="val" name="val" value="val" onclick="sendpost('{{x[3]}}')">Compra</button>
             <hr>
             {% endfor %}
         </div>
@@ -78,7 +76,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
   function sendpost(x) {
-      return $.post(null,x)
+      return $.post('cpu',x)
   }
 </script>
  </body>

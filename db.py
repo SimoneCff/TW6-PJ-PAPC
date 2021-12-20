@@ -2,7 +2,7 @@ from flask_pymongo import MongoClient
 import certifi
 import os
 
-client = MongoClient(os.environ.get("MONGODB"),tlsCAFile=certifi.where())
+client = MongoClient(os.environ.get("MONGODB"), tlsCAFile=certifi.where())
 
 db = client["PAPC"]
 
@@ -15,6 +15,7 @@ class SearchIntoDb():
     def findquery(self):
         return db[self.__db].find({"name": {"$regex": self.__query}})
 
+
 class SearchviaAttributes():
     def __init__(self, db, marca, min, max, socket, watt):
         self.__db = db
@@ -25,4 +26,6 @@ class SearchviaAttributes():
         self.__watt = watt
 
     def findqueryattr(self):
-        return db[self.__db].find({"marca": self.__marca, "COSTO": {"$lte" : self.__min, "$gte" : self.__max }, "socket" : self.__socket, "watt" : self.__watt})
+        print(self.__watt, self.__max, self.__min, self.__socket, self.__marca)
+        return db[self.__db].find({"marca": {"$regex": self.__marca}, "socket": {"$regex": self.__socket},
+                                   "watt": {"$regex": self.__watt}})
