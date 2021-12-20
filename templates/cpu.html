@@ -18,13 +18,15 @@
 <body class="bg-primary bg-opacity-25 ">
 {% block content %}
 <div>
-        <div class="bg-light sidenav">
+
             <form action="" method="post" novalidate>
                 {{form.hidden_tag()}}
                 <div class="text-center">
                 <img src="{{ url_for('static', filename='images/cpu.png')}}" class="img-rounded" alt="CPU" width="80">
                     <h4>CPU</h4>
                     </div> <hr>
+
+                <div class="bg-light sidenav">
                 <h5> Marca : </h5>
                   {{form2.AMD()}}
                   {{form2.AMD.label}} <br>
