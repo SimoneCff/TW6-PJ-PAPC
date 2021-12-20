@@ -18,9 +18,8 @@
 <body class="bg-primary bg-opacity-25 ">
 {% block content %}
 <div>
-    <div class="row">
-
-        <div class="col bg-light h-140 d-inline-block">
+    <div class="sidebar-wraper">
+        <div class=" bg-light ">
             <form action="" method="post" novalidate>
                 {{form.hidden_tag()}}
                 <div class="text-center">
@@ -55,9 +54,10 @@
                   {{form2.submitf(class_="btn btn-info")}}
 
                 </form>
+            </div>
         </div>
 
-        <div class="text-center col-lg-8">
+        <div class="text-center">
              <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
             {{ form.search(size=60) }}
@@ -71,7 +71,6 @@
             {% endfor %}
         </div>
 
-    </div>
   </div>
 {% endblock %}
 
