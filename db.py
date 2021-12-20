@@ -20,12 +20,15 @@ class SearchviaAttributes():
     def __init__(self, db, marca, min, max, socket, watt):
         self.__db = db
         self.__marca = marca
-        self.__min = min
-        self.__max = max
+        self.__min = int(min)
+        self.__max = int(max)
         self.__socket = socket
         self.__watt = watt
 
     def findqueryattr(self):
         print(self.__watt, self.__max, self.__min, self.__socket, self.__marca)
         return db[self.__db].find({"marca": {"$regex": self.__marca}, "socket": {"$regex": self.__socket},
-                                   "watt": {"$regex": self.__watt}})
+                                   "Watt": {"$regex": self.__watt}, "COSTO": {"$gte": self.__min, "$lte": self.__max}})
+
+#
+#

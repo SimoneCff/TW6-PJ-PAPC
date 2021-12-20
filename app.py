@@ -58,7 +58,7 @@ def cpu():
             else:
                 min = None
             if request.form.get('maxmonet'):
-                max = request.form.get('maxmonet')
+                max =request.form.get('maxmonet')
             else:
                 max = None
 
