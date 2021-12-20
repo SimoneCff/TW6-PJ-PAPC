@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="white">
-    <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/pages.css')}}" rel="stylesheet">
 
     <title>Pick-a-Pc</title>
 
@@ -18,8 +18,7 @@
 <body class="bg-primary bg-opacity-25 ">
 {% block content %}
 <div>
-    <div class="sidebar-wraper">
-        <div class=" bg-light ">
+        <div class="bg-light sidenav">
             <form action="" method="post" novalidate>
                 {{form.hidden_tag()}}
                 <div class="text-center">
@@ -55,7 +54,6 @@
 
                 </form>
             </div>
-        </div>
 
         <div class="text-center">
              <form action="" method="post" novalidate>
