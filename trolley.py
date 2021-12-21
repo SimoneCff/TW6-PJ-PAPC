@@ -2,7 +2,7 @@
 
 class Trolley():
     def __init__(self):
-        self.trolley = [7]
+        self.trolley = []
 
     def InsertCPU(self, cpuid):
         self.trolley[0] = cpuid

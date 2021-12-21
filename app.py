@@ -15,9 +15,11 @@ Carrello = Trolley()
 def index():
     return render_template("index.html")
 
+
 @app.route('/checkout')
 def checkout():
     return render_template("checkout.html", trolley=Carrello.returnList())
+
 
 @app.route('/cpu', methods=['POST', 'GET'])
 def cpu():

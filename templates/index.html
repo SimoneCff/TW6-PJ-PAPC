@@ -42,8 +42,7 @@
 
 
 <div class="col text-end">
-    <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#cart"
-            data-src="{{url_for('checkout')}}">
+    <button id="checkout" type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#cart" data-src="{{url_for('checkout')}}">
         <div>Carrello</div></button></div>
 
 <div class="col text-center">
@@ -60,7 +59,7 @@
 
 <div class="offcanvas offcanvas-end" id="cart">
     <div class="text-center embed-responsive embed-responsive-16by6" >
-    <iframe id="check" width="40%" height="630"  class="embed-responsive-item border border-2 border-secondary"></iframe>
+    <iframe id="check" width="100%" height="630"  class="embed-responsive-item"></iframe>
      </div>
     </div>
 

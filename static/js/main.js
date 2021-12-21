@@ -14,10 +14,12 @@ window.onload = () => {
 }
 
 $('button').click(function() {
-    $('#iframe').attr('src', $(this).data('src'))
-})
-
-$('carrello').click(function() {
-    $('#check').attr('src', $(this).data('src'))
+    var id = this.id
+    if (id == 'checkout') {
+        console.log("nel checkout")
+        $('#check').attr('src', $(this).data('src'))
+    } else {
+        $('#iframe').attr('src', $(this).data('src'))
+    }
 })
 
