@@ -6,16 +6,24 @@ from bson.json_util import dumps
 
 class Trolley():
     def __init__(self):
-        self.TotalWatt = None
         self.trolley = [None] * 7
+        self.totalwatt = 0
 
     def Insert(self, id, i, dat):
-        print(id, i, dat)
         Query = searchviaid(id, dat).findquery()
         self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']))
+        if i != 5:
+            watt = dumps(Query['Watt'])
+            watt = watt.split('"', 1)[1]
+            watt = watt.split('"', 1)[0]
+            self.totalwatt += int(watt)
 
     def Remove(self, i):
         self.trolley[i] = None
 
     def returnList(self):
         return self.trolley
+
+    def SeeWatt(self):
+        return self.totalwatt
+
