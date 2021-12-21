@@ -18,6 +18,7 @@ class Trolley():
             self.totalwatt += int(dumps(Query['Watt']))
 
     def Remove(self, i):
+        self.totalwatt -= int(self.trolley[i][2])
         self.trolley[i] = None
 
     def returnList(self):
