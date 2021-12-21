@@ -57,3 +57,16 @@ class MoboSelect(FlaskForm):
     minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     submitf = SubmitField('Cerca')
+
+class PSUSelect(FlaskForm):
+    Col = BooleanField('Cooler Master')
+    Shark = BooleanField('Sharkoon')
+    Cors = BooleanField('Corsair')
+
+    sixfive = BooleanField('650 W')
+    sevenfive = BooleanField('750 W')
+    eightfive = BooleanField('850 W')
+
+    minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    submitf = SubmitField('Cerca')

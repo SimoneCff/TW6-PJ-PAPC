@@ -51,8 +51,9 @@ class SearchviaAttributesCASE():
         return db[self.__db].find({"marca": {"$regex": self.__marche}, "model": {"$regex": self.__model},
                                    "COSTO": {"$gte": self.__min, "$lte": self.__max}})
 
+
 class SearchviaAttributesMobo():
-    def __init__(self,db,marca,min,max,socket,watt,model,clock):
+    def __init__(self, db, marca, min, max, socket, watt, model, clock):
         self.__db = db
         self.__marca = marca
         self.__min = int(min)
@@ -63,6 +64,19 @@ class SearchviaAttributesMobo():
         self.__clock = clock
 
     def findqueryattr(self):
-        return db[self.__db].find({ "marca": {"$regex": self.__marca}, "socket": {"$regex": self.__socket},
-            "Watt": {"$regex": self.__watt}, "COSTO": {"$gte": self.__min, "$lte": self.__max},
-            "model": {"$regex": self.__model}, "clock-r" : {"$regex": self.__clock}})
+        return db[self.__db].find({"marca": {"$regex": self.__marca}, "socket": {"$regex": self.__socket},
+                                   "Watt": {"$regex": self.__watt}, "COSTO": {"$gte": self.__min, "$lte": self.__max},
+                                   "model": {"$regex": self.__model}, "clock-r": {"$regex": self.__clock}})
+
+
+class SearchviaAttributesPSU():
+    def __init__(self, db, marca, min, max, watt):
+        self.__db = db
+        self.__marca = marca
+        self.__min = int(min)
+        self.__max = int(max)
+        self.__watt = watt
+
+    def findqueryattr(self):
+        return db[self.__db].find({"marca": {"$regex": self.__marca}, "Watt": {"$regex": self.__watt},
+                                   "COSTO": {"$gte": self.__min, "$lte": self.__max}})
