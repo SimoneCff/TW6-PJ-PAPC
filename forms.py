@@ -20,3 +20,6 @@ class CPUSelect(FlaskForm):
     minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     submitf = SubmitField('Cerca')
+
+class CaseSelect(FlaskForm):
+    Col = BooleanField('Cooler Master')

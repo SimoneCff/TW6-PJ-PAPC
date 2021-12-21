@@ -89,13 +89,13 @@ def cpu():
 @app.route('/case', methods=['POST', 'GET'])
 def case():
     form1 = Searchfor()
-    quer = list()
+    qir = list()
     if request.method == 'POST':
         if request.form.get('submit'):
             query = SearchIntoDb("CASE", request.form.get('search')).findquery()
             for x in query:
-                quer.insert(1, [dumps(x['name']), dumps(x['marca']), dumps(x['COSTO']), dumps(x['_id'])])
-                return render_template("case.html", form=form1, queri=quer)
+                qir.insert(1, [dumps(x['name']), dumps(x['marca']), dumps(x['COSTO']), dumps(x['_id'])])
+                return render_template("case.html", form=form1, queri=qir)
         if request.form.get('val'):
             x = str(request.form.get('val'))
             x = x.split('"$oid": "', 1)[1]
