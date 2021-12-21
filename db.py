@@ -6,6 +6,7 @@ client = MongoClient(os.environ.get("MONGODB"), tlsCAFile=certifi.where())
 
 db = client["PAPC"]
 
+
 class searchviaid():
     def __init__(self, id, dat):
         self.__id = ObjectId(id)
@@ -13,6 +14,7 @@ class searchviaid():
 
     def findquery(self):
         return db[self.__dat].find_one({"_id": self.__id})
+
 
 class SearchIntoDb():
     def __init__(self, db, query):
@@ -36,5 +38,15 @@ class SearchviaAttributesCPU():
         return db[self.__db].find({"marca": {"$regex": self.__marca}, "socket": {"$regex": self.__socket},
                                    "Watt": {"$regex": self.__watt}, "COSTO": {"$gte": self.__min, "$lte": self.__max}})
 
-#
-#
+
+class SearchviaAttributesCASE():
+    def __init__(self, db, marche, min, max, model):
+        self.__db = db
+        self.__marche = marche
+        self.__min = int(min)
+        self.__max = int(max)
+        self.__model = model
+
+    def findqueryattr(self):
+        return db[self.__db].find({"marca": {"$regex": self.__marche}, "model": {"$regex": self.__model},
+                                   "COSTO": {"$gte": self.__min, "$lte": self.__max}})
