@@ -70,3 +70,19 @@ class PSUSelect(FlaskForm):
     minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     submitf = SubmitField('Cerca')
+
+class CoolSelect(FlaskForm):
+    #marche:
+     Deep = BooleanField('DEEP COOL')
+     Col = BooleanField('Cooler Maste')
+     Cors = BooleanField('Corsair')
+
+     AM4 = BooleanField('AM4')
+     lga =  BooleanField('LGA 1151')
+
+     air = BooleanField("Aria")
+     liq = BooleanField("Liquido")
+
+     minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+     maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+     submitf = SubmitField('Cerca')
