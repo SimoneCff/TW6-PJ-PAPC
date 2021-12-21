@@ -1,11 +1,9 @@
-from array import array
-
 from flask import Flask, render_template, request
-from forms import Searchfor, CPUSelect, CaseSelect
-from config import Config
-from db import SearchIntoDb, SearchviaAttributesCPU, SearchviaAttributesCASE
+from complements.forms import Searchfor, CPUSelect, CaseSelect
+from complements.config import Config
+from complements.db import SearchIntoDb, SearchviaAttributesCPU, SearchviaAttributesCASE
 from bson.json_util import dumps
-from trolley import Trolley
+from complements.trolley import Trolley
 
 app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
 app.config.from_object(Config)

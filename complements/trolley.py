@@ -1,6 +1,6 @@
 # Basket can have only 8 piece: 0=cpu; 1=mobo; 2=ram; 3=gpu; 4=cooler; 5=psu; 6=case; 7=memory;
 
-from db import searchviaid
+from complements.db import searchviaid
 from bson.json_util import dumps
 
 
