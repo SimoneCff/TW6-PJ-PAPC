@@ -50,3 +50,19 @@ class SearchviaAttributesCASE():
     def findqueryattr(self):
         return db[self.__db].find({"marca": {"$regex": self.__marche}, "model": {"$regex": self.__model},
                                    "COSTO": {"$gte": self.__min, "$lte": self.__max}})
+
+class SearchviaAttributesMobo():
+    def __init__(self,db,marca,min,max,socket,watt,model,clock):
+        self.__db = db
+        self.__marca = marca
+        self.__min = int(min)
+        self.__max = int(max)
+        self.__socket = socket
+        self.__watt = watt
+        self.__model = model
+        self.__clock = clock
+
+    def findqueryattr(self):
+        return db[self.__db].find({ "marca": {"$regex": self.__marca}, "socket": {"$regex": self.__socket},
+            "Watt": {"$regex": self.__watt}, "COSTO": {"$gte": self.__min, "$lte": self.__max},
+            "model": {"$regex": self.__model}, "clock-r" : {"$regex": self.__clock}})
