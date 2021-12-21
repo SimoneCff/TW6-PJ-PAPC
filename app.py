@@ -21,7 +21,6 @@ def index():
 def checkout():
     return render_template("checkout.html", trolley=Carrello.returnList())
 
-
 @app.route('/cpu', methods=['POST', 'GET'])
 def cpu():
     form1 = Searchfor()
@@ -61,11 +60,11 @@ def cpu():
             if request.form.get('minmonet'):
                 min = request.form.get('minmonet')
             else:
-                min = None
+                min = "0"
             if request.form.get('maxmonet'):
                 max = request.form.get('maxmonet')
             else:
-                max = None
+                max = "10000"
 
             query = SearchviaAttributes("CPU", " ".join(marca), min, max, " ".join(socket),
                                         " ".join(watt)).findqueryattr()
