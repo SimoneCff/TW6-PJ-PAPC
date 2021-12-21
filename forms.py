@@ -22,4 +22,14 @@ class CPUSelect(FlaskForm):
     submitf = SubmitField('Cerca')
 
 class CaseSelect(FlaskForm):
+    #marche:
     Col = BooleanField('Cooler Master')
+    Shark = BooleanField('Sharkoon')
+    Therm = BooleanField('Thermaltake')
+    #model:
+    ATX = BooleanField('ATX')
+    mATX = BooleanField('mATX')
+    # max e min
+    minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    submitf = SubmitField('Cerca')
