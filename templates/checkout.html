@@ -26,7 +26,10 @@
           {% for x in trolley %}
              {% if x != None %}
               <h3> Nome: {{x[0]}}, Costo: {{x[1]}} </h3>
-              <hr>
+            <form action="" method="post">
+                <input type="hidden" value="{{x[3]}}" name="remove" id="remove">
+               <button type="submit"  class="btn btn-danger">X</button>
+            </form> <hr>
              {% endif %}
            {% endfor %}
             </div>

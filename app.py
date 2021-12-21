@@ -17,8 +17,12 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/checkout')
+@app.route('/checkout', methods=['POST', 'GET'])
 def checkout():
+    if request.method == 'POST':
+        x = request.form.get('remove')
+        Carrello.Remove(int(x))
+
     return render_template("checkout.html", trolley=Carrello.returnList())
 
 
