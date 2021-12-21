@@ -17,8 +17,11 @@
 <body>
 <div class="offcanvas-header">
         <h1 class="offcanvas-title">Resoconto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         <hr>
-         <div class="text-center">
+    </div>
+    <div class="offcanvas-body">
+        <div class="text-center">
           {% block content %}
           {% for x in trolley %}
              {% if x != None %}
@@ -27,10 +30,8 @@
              {% endif %}
            {% endfor %}
             </div>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         {% endblock %}
-    </div>
-    <div class="offcanvas-body">
         <button class="btn btn-primary " type="button"><div>Checkout</div></button>
+    </div>
 </body>
 </html>
