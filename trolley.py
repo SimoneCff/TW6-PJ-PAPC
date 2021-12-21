@@ -8,14 +8,21 @@ class Trolley():
     def __init__(self):
         self.TotalWatt = None
         self.trolley = [None] * 7
+        self.totalwatt = 0
 
     def Insert(self, id, i, dat):
         print(id, i, dat)
         Query = searchviaid(id, dat).findquery()
         self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']))
+        if i != 5:
+            self.totalwatt += int(dumps(Query['Watt']))
 
     def Remove(self, i):
         self.trolley[i] = None
 
     def returnList(self):
         return self.trolley
+
+    def SeeWatt(self):
+        return self.totalwatt
+
