@@ -1,4 +1,4 @@
-from flask_pymongo import MongoClient
+from flask_pymongo import MongoClient, ObjectId
 import certifi
 import os
 
@@ -6,6 +6,13 @@ client = MongoClient(os.environ.get("MONGODB"), tlsCAFile=certifi.where())
 
 db = client["PAPC"]
 
+class searchviaid():
+    def __init__(self, id, dat):
+        self.__id = ObjectId(id)
+        self.__dat = dat
+
+    def findquery(self):
+        return db[self.__dat].find_one({"_id": self.__id})
 
 class SearchIntoDb():
     def __init__(self, db, query):
