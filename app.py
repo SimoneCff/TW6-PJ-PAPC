@@ -20,8 +20,9 @@ def index():
 @app.route('/checkout', methods=['POST', 'GET'])
 def checkout():
     if request.method == 'POST':
-        x = request.form.get('remove')
-        Carrello.Remove(int(x))
+        if request.form.get('remove'):
+            x = request.form.get('remove')
+            Carrello.Remove(int(x))
 
     return render_template("checkout.html", trolley=Carrello.returnList())
 
@@ -76,12 +77,11 @@ def cpu():
             for x in query:
                 quer.insert(1, [dumps(x['name']), dumps(x['marca']), dumps(x['COSTO']), dumps(x['_id'])])
             return render_template("cpu.html", form=form1, queri=quer, form2=form2)
-        else:
-            x = str(request.form.to_dict())
+        if request.form.get('val'):
+            x = str(request.form.get('val'))
             x = x.split('"$oid": "', 1)[1]
             x = x.split('"', 1)[0]
             Carrello.Insert(x, 0, "CPU")
-            print(Carrello.returnList())
     quer.clear()
     return render_template("cpu.html", form=form1, form2=form2)
 
