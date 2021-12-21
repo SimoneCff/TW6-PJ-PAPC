@@ -16,6 +16,7 @@ class CPUSelect(FlaskForm):
    #wattaggi:
     sixfive = BooleanField('65 W')
     onehunfive = BooleanField('105 W')
+    onetwofive = BooleanField('125 W')
    #max e min
     minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
@@ -29,6 +30,29 @@ class CaseSelect(FlaskForm):
     #model:
     ATX = BooleanField('ATX')
     mATX = BooleanField('mATX')
+    # max e min
+    minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    submitf = SubmitField('Cerca')
+
+class MoboSelect(FlaskForm):
+    #marche:
+    Asus = BooleanField("Asus")
+    MSI = BooleanField("MSI")
+    Giga = BooleanField("Gigabyte")
+    # socket types:
+    AM4 = BooleanField('AM4')
+    lga = BooleanField('LGA 1151')
+    #model:
+    ATX = BooleanField('ATX')
+    mATX = BooleanField('mATX')
+    #clock ram:
+    twofive = BooleanField("2500 Hz")
+    fourfive = BooleanField("4500 Hz")
+    fivetre = BooleanField("5300 Hz")
+    # wattaggi:
+    seventy = BooleanField('70 W')
+    fifty = BooleanField('50 W')
     # max e min
     minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])

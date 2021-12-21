@@ -18,8 +18,12 @@
 <body class="bg-primary bg-opacity-25 ">
 {% block content %}
 <div>
+   <div class="col text-start">
+    <button id="optio" type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#opt">
+        <div>Opzioni</div></button></div>
                 {{form2.hidden_tag()}}
 
+   <div class="offcanvas offcanvas-start" id="opt">
                 <div class="bg-light sidenav">
                     <div class="text-center">
                          <img src="{{ url_for('static', filename='images/cpu.png')}}" class="img-rounded" alt="CPU" width="80">
@@ -45,6 +49,8 @@
                 {{form2.sixfive.label}} <br>
                 {{form2.onehunfive}}
                 {{form2.onehunfive.label}}<br>
+                  {{form2.onetwofive}}
+                {{form2.onetwofive.label}}<br>
                 <hr>
 
                 <h5> Prezzo :</h5>
@@ -56,6 +62,7 @@
                   </form>
                 </div>
             </div>
+    </div>
 
         <div class="text-center">
              <form action="" method="post" novalidate>

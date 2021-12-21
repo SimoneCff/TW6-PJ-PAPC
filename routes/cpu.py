@@ -26,22 +26,22 @@ def cpu():
             socket = list()
             watt = list()
 
-            if request.form.get("AMD") or request.form.get("INTEL"):
-                if request.form.get("AMD"):
-                    marca.append("AMD")
-                if request.form.get("INTEL"):
-                    marca.append("INTEL")
+            if request.form.get("AMD"):
+                marca.append("AMD")
+            if request.form.get("INTEL"):
+                marca.append("Intel")
 
-            if request.form.get("AM4") or request.form.get('LGA 1151'):
-                if request.form.get("AM4"):
-                    socket.append("AM4")
-                if request.form.get('LGA 1151'):
-                    socket.append("LGA1151")
+            if request.form.get("AM4"):
+                socket.append("AM4")
+            if request.form.get('LGA 1200'):
+                socket.append("LGA 1200")
 
             if request.form.get("sixfive"):
                 watt.append("65")
             if request.form.get("onehunfive"):
                 watt.append("105")
+            if request.form.get("onetwofive"):
+                watt.append("125")
 
             if request.form.get('minmonet'):
                 min = request.form.get('minmonet')

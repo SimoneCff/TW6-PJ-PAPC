@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="white">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/pages.css')}}" rel="stylesheet">
 
     <title>Pick-a-Pc</title>
 
@@ -16,6 +16,88 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-primary bg-opacity-25">
-<div>Scheda Madre</div>
+
+{% block content %}
+<div>
+    <div class="col text-start">
+    <button id="optio" type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#opt">
+        <div>Opzioni</div></button></div>
+
+    <div class="offcanvas offcanvas-start" id="opt">
+    {{form2.hidden_tag()}}
+     <div class="bg-light sidenav">
+
+                    <div class="text-center">
+                         <img src="{{ url_for('static', filename='images/mobo.png')}}" class="img-rounded" alt="CPU" width="80">
+                         <h4>Mobo</h4>
+                         </div> <hr>
+         <form action="" method="post" novalidate>
+             <h5> Marca : </h5>
+             {{form2.Asus}}
+             {{form2.Asus.label}} <br>
+             {{form2.MSI}}
+             {{form2.MSI.label}} <br>
+             {{form2.Giga}}
+             {{form2.Giga.label}} <br>
+             <hr>
+
+             <h5> Socket: </h5>
+             {{form2.AM4}}
+             {{form2.AM4.label}} <br>
+             {{form2.lga}}
+             {{form2.lga.label}} <br>
+             <hr>
+
+             <h5> Modelli :</h5>
+             {{form2.ATX}}
+             {{form2.ATX.label}} <br>
+             {{form2.mATX}}
+             {{form2.mATX.label}}
+             <hr>
+
+             <h5> Clock-Max RAM: </h5>
+             {{form2.twofive}}
+             {{form2.twofive.label}} <br>
+             {{form2.fourfive}}
+             {{form2.fourfive.label}} <br>
+             {{form2.fivetre}}
+             {{form2.fivetre.label}} <br>
+             <hr>
+
+             <h5> Watt :</h5>
+             {{form2.seventy}}
+             {{form2.seventy.label}} <br>
+             {{form2.fifty}}
+             {{form2.fifty.label}} <br>
+             <hr>
+
+              <h5> Prezzo :</h5>
+             {{form2.minmonet(size=10)}}
+             <br>
+             {{form2.maxmonet(size=10)}}
+
+             {{form2.submitf(class_="btn btn-info")}}
+         </form>
+     </div>
+    </div>
+
+<div class="text-center">
+             <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+            {{ form.search(size=60) }}
+            {{ form.submit(class_="btn btn-primary") }}
+                   </form>
+            <hr>
+            {%for x in queri %}
+            <h3> Nome: {{x[0]}}, Marca: {{x[1]}}, Costo: {{x[2]}} </h3>
+            <form action="" method="post" id="Button">
+                <input type="hidden" id="val" name="val" value="{{x[3]}}">
+                <button class="btn btn-secondary" type="submit" >Compra</button>
+            </form>
+            <hr>
+            {% endfor %}
+        </div>
+</div>
+{% endblock %}
 </body>
 </html>

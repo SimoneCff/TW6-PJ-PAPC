@@ -17,7 +17,10 @@
 </head>
 <body class="bg-primary bg-opacity-25">
   {% block content %}
-
+  <div class="col text-start">
+    <button id="optio" type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#opt">
+        <div>Opzioni</div></button></div>
+ <div class="offcanvas offcanvas-start" id="opt">
     <div class="bg-light sidenav">
         <div class="text-center">
             <img src="{{ url_for('static', filename='images/case.png')}}" class="img-rounded" alt="CPU" width="80">
@@ -50,6 +53,7 @@
             {{form2.submitf}}
         </form>
     </div>
+ </div>
 
 <div class="text-center">
              <form action="" method="post" novalidate>
