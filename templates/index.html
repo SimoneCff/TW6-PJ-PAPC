@@ -41,7 +41,11 @@
 
 
 
-<div class="col text-end"><button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#cart"><div>Carrello</div></button></div>
+<div class="col text-end">
+    <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#cart"
+            data-src="{{url_for('checkout'}}">
+        <div>Carrello</div></button></div>
+
 <div class="col text-center">
     <button type="button" class="btn" data-src="{{url_for('cpu')}}"><img src="{{ url_for('static', filename='images/cpu.png')}}" class="img-rounded" alt="CPU" width="80"><div>cpu</div></button>
     <button type="button" class="btn" data-src="{{url_for('mobo')}}"><img src="{{ url_for('static', filename='images/mobo.png')}}" class="img-rounded" alt="mobo" width="80"><div>scheda madre</div></button>
@@ -55,12 +59,9 @@
 <hr>
 
 <div class="offcanvas offcanvas-end" id="cart">
-    <div class="offcanvas-header">
-        <h1 class="offcanvas-title">Resoconto</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body">
-        <button class="btn btn-primary " type="button"><div>Checkout</div></button>
+    <div class="text-center embed-responsive embed-responsive-16by6" >
+    <iframe id="check" width="40%" height="630"  class="embed-responsive-item border border-2 border-secondary"></iframe>
+     </div>
     </div>
 
 </div>

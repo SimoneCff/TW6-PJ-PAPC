@@ -2,28 +2,25 @@
 
 class Trolley():
     def __init__(self):
-        self.trolley = []
-        for i in range(8):
-            self.trolley.append(i)
+        self.trolley = [7]
 
     def InsertCPU(self, cpuid):
-        self.trolley.insert(0, cpuid)
+        self.trolley[0] = cpuid
 
     def RemoveCPU(self):
-        self.trolley.pop(0)
+        self.trolley[0] = False
 
     def InsertMobo(self, caseid):
-        self.trolley.insert(1, caseid)
+        self.trolley[1] = caseid
 
     def RemoveMobo(self):
-        self.trolley.pop(1)
+        self.trolley[1] = False
 
     def InsertRAM(self, ramid):
-        self.trolley.insert(2,ramid)
+        self.trolley[2] = ramid
 
     def removeRAM(self):
-        self.trolley.pop(2)
+        self.trolley[2] = False
 
-    def
-
-
+    def returnList(self):
+        return self.trolley

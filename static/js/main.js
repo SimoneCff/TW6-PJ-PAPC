@@ -17,3 +17,7 @@ $('button').click(function() {
     $('#iframe').attr('src', $(this).data('src'))
 })
 
+$('carrello').click(function() {
+    $('#check').attr('src', $(this).data('src'))
+})
+

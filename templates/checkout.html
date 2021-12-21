@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="white">
+    <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
+
+    <title>Pick-a-Pc</title>
+
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/icon.jpg') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/icon.ico') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="offcanvas-header">
+        <h1 class="offcanvas-title">Resoconto</h1>
+        <hr>
+         <div class="text-center">
+          {% block content %}
+          {% for x in trolley %}
+             {% if x != False %}
+              <h3> Id : {{x}} </h3>
+              <hr>
+             {% endif %}
+           {% endfor %}
+            </div>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        {% endblock %}
+    </div>
+    <div class="offcanvas-body">
+        <button class="btn btn-primary " type="button"><div>Checkout</div></button>
+</body>
+</html>

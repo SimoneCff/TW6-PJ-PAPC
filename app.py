@@ -5,14 +5,19 @@ from forms import Searchfor, CPUSelect
 from config import Config
 from db import SearchIntoDb, SearchviaAttributes
 from bson.json_util import dumps
+from trolley import Trolley
 
 app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
 app.config.from_object(Config)
+Carrello = Trolley()
 
 @app.route('/')
 def index():
     return render_template("index.html")
 
+@app.route('/checkout')
+def checkout():
+    return render_template("checkout.html", trolley=Carrello.returnList())
 
 @app.route('/cpu', methods=['POST', 'GET'])
 def cpu():
@@ -68,7 +73,8 @@ def cpu():
             x = str(request.form.to_dict())
             x = x.split('"$oid": "', 1)[1]
             x = x.split('"', 1)[0]
-            print(x)
+            Carrello.InsertCPU(x)
+            print(Carrello.returnList())
     quer.clear()
     return render_template("cpu.html", form=form1, form2=form2)
 

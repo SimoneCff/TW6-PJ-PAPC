@@ -66,7 +66,9 @@
             <hr>
             {%for x in queri %}
             <h3> Nome: {{x[0]}}, Marca: {{x[1]}}, Costo: {{x[2]}} </h3>
-            <button class="btn btn-secondary" id="val" name="val" value="val" onclick="sendpost('{{x[3]}}')">Compra</button>
+            <form action="" method="post" id="Button">
+            <button class="btn btn-secondary" id="val" name="val" value="{{x[3]}}">Compra</button>
+            </form>
             <hr>
             {% endfor %}
         </div>
@@ -75,10 +77,5 @@
 {% endblock %}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-  function sendpost(x) {
-      return $.post('cpu',x)
-  }
-</script>
  </body>
 </html>
