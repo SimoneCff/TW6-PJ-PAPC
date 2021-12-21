@@ -3,7 +3,7 @@ from array import array
 from flask import Flask, render_template, request
 from forms import Searchfor, CPUSelect
 from config import Config
-from db import SearchIntoDb, SearchviaAttributes
+from db import SearchIntoDb, SearchviaAttributesCPU
 from bson.json_util import dumps
 from trolley import Trolley
 
@@ -72,7 +72,7 @@ def cpu():
             else:
                 max = "10000"
 
-            query = SearchviaAttributes("CPU", " ".join(marca), min, max, " ".join(socket),
+            query = SearchviaAttributesCPU("CPU", " ".join(marca), min, max, " ".join(socket),
                                         " ".join(watt)).findqueryattr()
             for x in query:
                 quer.insert(1, [dumps(x['name']), dumps(x['marca']), dumps(x['COSTO']), dumps(x['_id'])])
@@ -86,9 +86,23 @@ def cpu():
     return render_template("cpu.html", form=form1, form2=form2)
 
 
-@app.route('/case')
+@app.route('/case', methods=['POST', 'GET'])
 def case():
-    return render_template("case.html")
+    form1 = Searchfor()
+    quer = list()
+    if request.method == 'POST':
+        if request.form.get('submit'):
+            query = SearchIntoDb("CASE", request.form.get('search')).findquery()
+            for x in query:
+                quer.insert(1, [dumps(x['name']), dumps(x['marca']), dumps(x['COSTO']), dumps(x['_id'])])
+                return render_template("case.html", form=form1, queri=quer)
+        if request.form.get('val'):
+            x = str(request.form.get('val'))
+            x = x.split('"$oid": "', 1)[1]
+            x = x.split('"', 1)[0]
+            Carrello.Insert(x, 6, "CASE")
+
+    return render_template("case.html", form=form1)
 
 
 @app.route('/cooling')

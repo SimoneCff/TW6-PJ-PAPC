@@ -23,7 +23,7 @@ class SearchIntoDb():
         return db[self.__db].find({"name": {"$regex": self.__query}})
 
 
-class SearchviaAttributes():
+class SearchviaAttributesCPU():
     def __init__(self, db, marca, min, max, socket, watt):
         self.__db = db
         self.__marca = marca

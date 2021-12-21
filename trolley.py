@@ -10,13 +10,17 @@ class Trolley():
         self.totalwatt = 0
 
     def Insert(self, id, i, dat):
+        print(i)
         Query = searchviaid(id, dat).findquery()
-        self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']), i)
-        if i != 5:
-            watt = dumps(Query['Watt'])
-            watt = watt.split('"', 1)[1]
-            watt = watt.split('"', 1)[0]
-            self.totalwatt += int(watt)
+        if i == 6:
+            self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['model']), i)
+        else:
+            self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']), i)
+            if i != 5:
+                watt = dumps(Query['Watt'])
+                watt = watt.split('"', 1)[1]
+                watt = watt.split('"', 1)[0]
+                self.totalwatt += int(watt)
 
     def Remove(self, i):
         rem = self.trolley[i]
@@ -28,4 +32,3 @@ class Trolley():
 
     def SeeWatt(self):
         return self.totalwatt
-
