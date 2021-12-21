@@ -6,7 +6,6 @@ from bson.json_util import dumps
 
 class Trolley():
     def __init__(self):
-        self.TotalWatt = None
         self.trolley = [None] * 7
         self.totalwatt = 0
 
@@ -16,6 +15,7 @@ class Trolley():
         self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']))
         if i != 5:
             self.totalwatt += int(dumps(Query['Watt']))
+            print(self.totalwatt)
 
     def Remove(self, i):
         self.totalwatt -= int(self.trolley[i][2])
