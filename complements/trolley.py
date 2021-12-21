@@ -31,4 +31,8 @@ class Trolley():
         return self.trolley
 
     def SeeWatt(self):
-        return self.totalwatt
+        PSU = self.trolley[5]
+        if self.totalwatt < int(PSU[3]):
+            return True
+        else:
+            return False
