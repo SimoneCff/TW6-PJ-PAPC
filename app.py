@@ -11,6 +11,7 @@ app = Flask(__name__, static_url_path='', template_folder='templates', static_fo
 app.config.from_object(Config)
 Carrello = Trolley()
 
+
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -62,7 +63,7 @@ def cpu():
             else:
                 min = None
             if request.form.get('maxmonet'):
-                max =request.form.get('maxmonet')
+                max = request.form.get('maxmonet')
             else:
                 max = None
 
@@ -75,7 +76,7 @@ def cpu():
             x = str(request.form.to_dict())
             x = x.split('"$oid": "', 1)[1]
             x = x.split('"', 1)[0]
-            Carrello.InsertCPU(x)
+            Carrello.Insert(x, 0)
             print(Carrello.returnList())
     quer.clear()
     return render_template("cpu.html", form=form1, form2=form2)

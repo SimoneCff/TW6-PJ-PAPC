@@ -21,7 +21,7 @@
          <div class="text-center">
           {% block content %}
           {% for x in trolley %}
-             {% if x != False %}
+             {% if x != None %}
               <h3> Id : {{x}} </h3>
               <hr>
              {% endif %}
