@@ -72,5 +72,8 @@ def mobo():
 
         query = SearchviaAttributesMobo("MOBO", " ".join(marca), min, max, " ".join(socket),
                                         " ".join(watt), " ".join(model), " ".join(clock)).findqueryattr()
+        for x in query:
+            quer.insert(1, [dumps(x['name']), dumps(x['marca']), dumps(x['COSTO']), dumps(x['_id'])])
+        return render_template("mobo.html", form=form1, queri=quer, form2=form2)
 
     return render_template("mobo.html", form=form1, form2=form2)

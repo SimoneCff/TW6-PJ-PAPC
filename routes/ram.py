@@ -58,6 +58,6 @@ def ram():
                                            ).findqueryattr()
             for x in query:
                 quer.insert(1, [dumps(x['name']), dumps(x['marca']), dumps(x['COSTO']), dumps(x['_id'])])
-            return render_template("case.html", form=form1, form2=form2, queri=quer)
+            return render_template("ram.html", form=form1, form2=form2, queri=quer)
 
     return render_template("ram.html", form=form1, form2=form2)
