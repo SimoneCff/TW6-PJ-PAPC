@@ -38,6 +38,19 @@ class SearchviaAttributesCPU():
         return db[self.__db].find({"marca": {"$regex": self.__marca}, "socket": {"$regex": self.__socket},
                                    "Watt": {"$regex": self.__watt}, "COSTO": {"$gte": self.__min, "$lte": self.__max}})
 
+class SearchviaAttributesGPU():
+        def __init__(self, db, marca, min, max, prod,tipo):
+            self.__db = db
+            self.__marca = marca
+            self.__min = int(min)
+            self.__max = int(max)
+            self.__prod = prod
+            self.__tipo = tipo
+
+        def findqueryattr(self):
+            return db[self.__db].find({"marca": {"$regex": self.__marca}, "producer": {"$regex": self.__prod},
+                                       "tipo": {"$regex": self.__tipo},
+                                       "COSTO": {"$gte": self.__min, "$lte": self.__max}})
 
 class SearchviaAttributesCool():
     def __init__(self, db, marca, min, max, socket, watt, type):

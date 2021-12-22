@@ -127,3 +127,20 @@ class MEMOSelect(FlaskForm):
     minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     submitf = SubmitField('Cerca')
+
+class GPUSelect(FlaskForm):
+
+    # marche:
+    Asus = BooleanField("Asus")
+    xfx = BooleanField("XFX")
+    Giga = BooleanField("Gigabyte")
+    # prod:
+    AMD = BooleanField('AMD')
+    Nvidia = BooleanField('Nvdia')
+    #Tipo:
+    RX = BooleanField('RX')
+    RTX = BooleanField('RTX')
+    #costo :
+    minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    submitf = SubmitField('Cerca')

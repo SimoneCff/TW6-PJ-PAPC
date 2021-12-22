@@ -2,9 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="white">
+    <link href="{{ url_for('static', filename='css/pages.css')}}" rel="stylesheet">
 
+    <title>Pick-a-Pc</title>
+
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/icon.jpg') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/icon.ico') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-primary bg-opacity-25 ">
+{% block content %}
+<div>
+   <div class="col text-start">
+    <button id="optio" type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#opt">
+        <div>Opzioni</div></button></div>
+                {{form2.hidden_tag()}}
+
+   <div class="offcanvas offcanvas-start" id="opt">
+                <div class="bg-light sidenav">
+                    <div class="text-center">
+                         <img src="{{ url_for('static', filename='images/gpu.png')}}" class="img-rounded" alt="CPU" width="80">
+                         <h4>CPU</h4>
+                         </div> <hr>
+              <form action="" method="post" novalidate>
+                <h5> Marca : </h5>
+                  {{form2.Asus}}
+                  {{form2.Asus.label}} <br>
+                  {{form2.xfx}}
+                  {{form2.xfx.label}} <br>
+                  {{form2.Giga}}
+                  {{form2.Giga.label}}
+                  <hr>
+                  <h5> Produttore :</h5>
+                  {{form2.AMD}}
+                  {{form2.AMD.label}} <br>
+                  {{form2.Nvidia}}
+                  {{form2.Nvidia.label}}
+                  <hr>
+                  <h5> Tipo :</h5>
+                  {{form2.RX}}
+                  {{form2.RX.label}} <br>
+                  {{form2.RTX}}
+                  {{form2.RTX.label}}
+                  <hr>
+                  <h5> Prezzo :</h5>
+                  {{form2.minmonet(size=10)}}
+                  <br>
+                  {{form2.maxmonet(size=10)}}
+
+                  {{form2.submitf(class_="btn btn-info")}}
+
+              </form>
+                     </div>
+            </div>
+    </div>
+
+        <div class="text-center">
+             <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+            {{ form.search(size=60) }}
+            {{ form.submit(class_="btn btn-primary") }}
+                   </form>
+            <hr>
+            {%for x in queri %}
+            <h3> Nome: {{x[0]}}, Marca: {{x[1]}}, Costo: {{x[2]}} </h3>
+            <form action="" method="post" id="Button">
+                <input type="hidden" id="val" name="val" value="{{x[3]}}">
+                <button class="btn btn-secondary" type="submit" >Compra</button>
+            </form>
+            <hr>
+            {% endfor %}
+        </div>
+
+  </div>
+{% endblock %}
 </body>
 </html>
