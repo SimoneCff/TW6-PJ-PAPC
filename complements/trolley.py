@@ -6,7 +6,7 @@ from bson.json_util import dumps
 
 class Trolley():
     def __init__(self):
-        self.trolley = [None] * 7
+        self.trolley = [None] * 8
         self.totalwatt = 0
 
     def Insert(self, id, i, dat):
@@ -15,7 +15,7 @@ class Trolley():
             self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['model']), i)
         else:
             if i == 2 or i == 7:
-                self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO'],i))
+                self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), None ,i)
             else:
                 self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']), i)
                 if i != 5:

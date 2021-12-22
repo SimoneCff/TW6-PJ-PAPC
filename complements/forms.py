@@ -2,32 +2,35 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, DecimalField, BooleanField
 from wtforms.validators import DataRequired, NumberRange
 
+
 class Searchfor(FlaskForm):
     search = StringField('SearchField', validators=[DataRequired()])
     submit = SubmitField('Cerca')
 
+
 class CPUSelect(FlaskForm):
-    #marche:
+    # marche:
     AMD = BooleanField('AMD')
     INTEL = BooleanField('Intel')
-   #socket types:
+    # socket types:
     AM4 = BooleanField('AM4')
-    lga =  BooleanField('LGA 1151')
-   #wattaggi:
+    lga = BooleanField('LGA 1151')
+    # wattaggi:
     sixfive = BooleanField('65 W')
     onehunfive = BooleanField('105 W')
     onetwofive = BooleanField('125 W')
-   #max e min
+    # max e min
     minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     submitf = SubmitField('Cerca')
 
+
 class CaseSelect(FlaskForm):
-    #marche:
+    # marche:
     Col = BooleanField('Cooler Master')
     Shark = BooleanField('Sharkoon')
     Therm = BooleanField('Thermaltake')
-    #model:
+    # model:
     ATX = BooleanField('ATX')
     mATX = BooleanField('mATX')
     # max e min
@@ -35,18 +38,19 @@ class CaseSelect(FlaskForm):
     maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     submitf = SubmitField('Cerca')
 
+
 class MoboSelect(FlaskForm):
-    #marche:
+    # marche:
     Asus = BooleanField("Asus")
     MSI = BooleanField("MSI")
     Giga = BooleanField("Gigabyte")
     # socket types:
     AM4 = BooleanField('AM4')
     lga = BooleanField('LGA 1151')
-    #model:
+    # model:
     ATX = BooleanField('ATX')
     mATX = BooleanField('mATX')
-    #clock ram:
+    # clock ram:
     twofive = BooleanField("2500 Hz")
     fourfive = BooleanField("4500 Hz")
     fivetre = BooleanField("5300 Hz")
@@ -57,6 +61,7 @@ class MoboSelect(FlaskForm):
     minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     submitf = SubmitField('Cerca')
+
 
 class PSUSelect(FlaskForm):
     Col = BooleanField('Cooler Master')
@@ -71,21 +76,23 @@ class PSUSelect(FlaskForm):
     maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     submitf = SubmitField('Cerca')
 
+
 class CoolSelect(FlaskForm):
-    #marche:
-     Deep = BooleanField('DEEP COOL')
-     Col = BooleanField('Cooler Maste')
-     Cors = BooleanField('Corsair')
+    # marche:
+    Deep = BooleanField('DEEP COOL')
+    Col = BooleanField('Cooler Maste')
+    Cors = BooleanField('Corsair')
 
-     AM4 = BooleanField('AM4')
-     lga =  BooleanField('LGA 1151')
+    AM4 = BooleanField('AM4')
+    lga = BooleanField('LGA 1151')
 
-     air = BooleanField("Aria")
-     liq = BooleanField("Liquido")
+    air = BooleanField("Aria")
+    liq = BooleanField("Liquido")
 
-     minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
-     maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
-     submitf = SubmitField('Cerca')
+    minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    submitf = SubmitField('Cerca')
+
 
 class RAMSelect(FlaskForm):
     Col = BooleanField('Cooler Master')
@@ -98,6 +105,24 @@ class RAMSelect(FlaskForm):
     # qt ram:
     six = BooleanField("16 Gb")
     tree = BooleanField("32 GB")
+
+    minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    submitf = SubmitField('Cerca')
+
+
+class MEMOSelect(FlaskForm):
+    Cruc = BooleanField('Crucial')
+    Sam = BooleanField('Samsung')
+    Sea = BooleanField('Seagate')
+    WD = BooleanField('WD')
+
+    SSD = BooleanField('SSD')
+    HD = BooleanField('Hard-Disk')
+
+    quattro = BooleanField('480 GB')
+    cinque = BooleanField('500 GB')
+    mille = BooleanField('1 TB')
 
     minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
     maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])

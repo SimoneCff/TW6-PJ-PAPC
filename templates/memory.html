@@ -17,6 +17,81 @@
 </head>
 <body class="bg-primary bg-opacity-25">
 
+ {% block content %}
+  <div class="col text-start">
+    <button id="optio" type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#opt">
+        <div>Opzioni</div></button></div>
+
+ <div class="offcanvas offcanvas-start" id="opt">
+    <div class="bg-light sidenav">
+        <div class="text-center">
+            <img src="{{ url_for('static', filename='images/memory.png')}}" class="img-rounded" alt="CPU" width="80">
+            <h4>Memoria Interna</h4>
+        </div> <hr>
+
+        <form action="" method="post" novalidate>
+            {{form2.hidden_tag()}}
+            </form>
+        <h5> Marca :</h5>
+        {{form2.Cruc}}
+        {{form2.Cruc.label}}
+        <br>
+        {{form2.Sam}}
+        {{form2.Sam.label}}
+        <br>
+        {{form2.Sea}}
+        {{form2.Sea.label}}
+        <br>
+        {{form2.WD}}
+        {{form2.WD.label}}
+        <hr>
+
+         <h5> Tipo: </h5>
+        {{form2.SSD}}
+        {{form2.SSD.label}}
+        <br>
+        {{form2.HD}}
+        {{form2.HD.label}}
+        <hr>
+
+         <h5>Size :</h5>
+        {{form2.quattro}}
+        {{form2.quattro.label}}
+        <br>
+        {{form2.cinque}}
+        {{form2.cinque.label}}
+        <br>
+        {{form2.mille}}
+        {{form2.mille.label}}
+        <hr>
+
+        <h5> Prezzo :</h5>
+                  {{form2.minmonet(size=10)}}
+                  <br>
+                  {{form2.maxmonet(size=10)}}
+
+                  {{form2.submitf(class_="btn btn-info")}}
+
+    </div>
+ </div>
+
+<div class="text-center">
+             <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+            {{ form.search(size=60) }}
+            {{ form.submit(class_="btn btn-primary") }}
+                   </form>
+            <hr>
+           {%for x in queri %}
+            <h3> Nome: {{x[0]}}, Marca: {{x[1]}}, Costo: {{x[2]}} </h3>
+            <form action="" method="post" id="Button">
+                <input type="hidden" id="val" name="val" value="{{x[3]}}">
+                <button class="btn btn-secondary" type="submit" >Compra</button>
+            </form>
+            <hr>
+            {% endfor %}
+    </div>
+{% endblock %}
 
 </body>
 </html>

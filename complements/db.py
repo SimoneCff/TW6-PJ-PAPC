@@ -48,7 +48,7 @@ class SearchviaAttributesCool():
         self.__type = type
 
     def findqueryattr(self):
-        return db[self.__db].find({"marca": {"$regex": self.__marca},"COSTO": {"$gte": self.__min, "$lte": self.__max},
+        return db[self.__db].find({"marca": {"$regex": self.__marca}, "COSTO": {"$gte": self.__min, "$lte": self.__max},
                                    "tipo": {"$regex": self.__type}})
 
 
@@ -94,6 +94,7 @@ class SearchviaAttributesPSU():
         return db[self.__db].find({"marca": {"$regex": self.__marca}, "Watt": {"$regex": self.__watt},
                                    "COSTO": {"$gte": self.__min, "$lte": self.__max}})
 
+
 class SearchviaAttributesRAM():
     def __init__(self, db, marca, min, max, clock, qt):
         self.__db = db
@@ -106,3 +107,17 @@ class SearchviaAttributesRAM():
     def findqueryattr(self):
         return db[self.__db].find({"marca": {"$regex": self.__marca}, "COSTO": {"$gte": self.__min, "$lte": self.__max},
                                    "qt": {"$regex": self.__qt}, "clock-r": {"$regex": self.__clock}})
+
+
+class SearchviaAttributesMem():
+    def __init__(self, db, marca, min, max, size, type):
+        self.__db = db
+        self.__marca = marca
+        self.__min = int(min)
+        self.__max = int(max)
+        self.__size = size
+        self.__type = type
+
+    def findqueryattr(self):
+        return db[self.__db].find({"marca": {"$regex": self.__marca}, "COSTO": {"$gte": self.__min, "$lte": self.__max},
+                                   "Size": {"$regex": self.__size}, "type": {"$regex": self.__type}})
