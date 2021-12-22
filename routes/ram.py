@@ -54,7 +54,7 @@ def ram():
                 max = request.form.get('maxmonet')
             else:
                 max = "10000"
-            query = SearchviaAttributesRAM("CASE", " ".join(marca), min, max, " ".join(clock), " ".join(qt)
+                query = SearchviaAttributesRAM("RAM", " ".join(marca), min, max, " ".join(clock), " ".join(qt)
                                            ).findqueryattr()
             for x in query:
                 quer.insert(1, [dumps(x['name']), dumps(x['marca']), dumps(x['COSTO']), dumps(x['_id'])])

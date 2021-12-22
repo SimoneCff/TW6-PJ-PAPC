@@ -27,17 +27,17 @@ def cooling():
             watt = list()
             type = list()
 
-            if request.form.get(""):
-                marca.append("")
-            if request.form.get(""):
-                marca.append("")
-            if request.form.get(""):
-                marca.append("")
+            if request.form.get('Deep'):
+                marca.append("DEEP COOL")
+            if request.form.get('Col'):
+                marca.append("Cooler Master")
+            if request.form.get('Cors'):
+                marca.append("Corsair")
 
 
-            if request.form.get():
+            if request.form.get('air'):
                 type.append("air")
-            if request.form.get():
+            if request.form.get('liq'):
                 type.append("liquido")
 
             if request.form.get('minmonet'):
