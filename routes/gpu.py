@@ -57,8 +57,9 @@ def gpu():
             else:
                 max = "10000"
 
-            query = SearchviaAttributesGPU("CPU", " ".join(marca), min, max, " ".join(prod),
+            query = SearchviaAttributesGPU("GPU", " ".join(marca), min, max, " ".join(prod),
                                            " ".join(tipo)).findqueryattr()
+
             for x in query:
                 quer.insert(1, [dumps(x['name']), dumps(x['marca']), dumps(x['COSTO']), dumps(x['_id'])])
             return render_template("gpu.html", form=form1, queri=quer, form2=form2)
