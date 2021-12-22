@@ -2,7 +2,7 @@ from bson.json_util import dumps
 from flask import render_template, request
 
 from app import app, Carrello
-from complements.db import SearchIntoDb
+from complements.db import SearchIntoDb, SearchviaAttributesMobo
 from complements.forms import Searchfor, MoboSelect
 
 
