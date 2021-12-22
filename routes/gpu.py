@@ -55,7 +55,7 @@ def gpu():
             if request.form.get('maxmonet'):
                 max = request.form.get('maxmonet')
             else:
-                max = "10000"
+                max = "100000"
 
             query = SearchviaAttributesGPU("GPU", " ".join(marca), min, max, " ".join(prod),
                                            " ".join(tipo)).findqueryattr()
