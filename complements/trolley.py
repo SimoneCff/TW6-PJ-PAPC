@@ -19,11 +19,11 @@ class Trolley():
             else:
                 if i == 0:
                     self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']),
-                                       dumps(Query['socket']), i)
+                                       dumps(Query['socket']),i)
                 else:
                     if i == 1:
                         self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']),
-                                           dumps(Query['socket']), dumps(Query['clock-r']), i)
+                                           dumps(Query['socket']), i, dumps(Query['clock-r']), dumps(Query['model']))
                     else:
                         if i == 2:
                             self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['clock']), i)
@@ -68,9 +68,20 @@ class Trolley():
         MOBO = self.trolley[1]
         RAM = self.trolley[2]
         if RAM is not None and MOBO is not None:
-            if RAM[2] == MOBO[4]:
+            if RAM[2] == MOBO[5]:
                 return True
             else:
+                return False
+        else:
+            return None
+
+    def SeeCompatibiltyCase(self):
+        CASE = self.trolley[6]
+        MOBO = self.trolley[1]
+        if CASE is not None and MOBO is not None:
+            if CASE[2] == MOBO[6]:
+                return True
+            else :
                 return False
         else:
             return None
