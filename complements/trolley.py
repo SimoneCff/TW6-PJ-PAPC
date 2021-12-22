@@ -29,7 +29,7 @@ class Trolley():
                             self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['clock']), i)
                         else:
                             self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']), i)
-        if i != 5:
+        if i == 0 or i == 1 or i == 3 or i == 4:
             watt = dumps(Query['Watt'])
             watt = watt.split('"', 1)[1]
             watt = watt.split('"', 1)[0]
