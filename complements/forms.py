@@ -86,3 +86,19 @@ class CoolSelect(FlaskForm):
      minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
      maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
      submitf = SubmitField('Cerca')
+
+class RAMSelect(FlaskForm):
+    Col = BooleanField('Cooler Master')
+    Cruc = BooleanField('Crucial')
+
+    # clock ram:
+    treetwo = BooleanField("3200 Hz")
+    treesix = BooleanField("3600 Hz")
+
+    # qt ram:
+    six = BooleanField("16 Gb")
+    tree = BooleanField("32 GB")
+
+    minmonet = DecimalField('MinField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    maxmonet = DecimalField('MaxField', validators=[DataRequired(), NumberRange(min=0, max=4000)])
+    submitf = SubmitField('Cerca')

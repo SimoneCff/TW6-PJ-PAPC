@@ -93,3 +93,16 @@ class SearchviaAttributesPSU():
     def findqueryattr(self):
         return db[self.__db].find({"marca": {"$regex": self.__marca}, "Watt": {"$regex": self.__watt},
                                    "COSTO": {"$gte": self.__min, "$lte": self.__max}})
+
+class SearchviaAttributesRAM():
+    def __init__(self, db, marca, min, max, clock, qt):
+        self.__db = db
+        self.__marca = marca
+        self.__min = int(min)
+        self.__max = int(max)
+        self.__clock = clock
+        self.__qt = qt
+
+    def findqueryattr(self):
+        return db[self.__db].find({"marca": {"$regex": self.__marca}, "COSTO": {"$gte": self.__min, "$lte": self.__max},
+                                   "qt": {"$regex": self.__qt}, "clock-r": {"$regex": self.__clock}})

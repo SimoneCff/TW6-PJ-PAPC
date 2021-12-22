@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="white">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/pages.css')}}" rel="stylesheet">
 
     <title>Pick-a-Pc</title>
 
@@ -16,6 +16,70 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-primary bg-opacity-25">
-<div>Ram</div>
+  {% block content %}
+  <div class="col text-start">
+    <button id="optio" type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#opt">
+        <div>Opzioni</div></button></div>
+ <div class="offcanvas offcanvas-start" id="opt">
+    <div class="bg-light sidenav">
+        <div class="text-center">
+            <img src="{{ url_for('static', filename='images/ram.png')}}" class="img-rounded" alt="CPU" width="80">
+            <h4>RAM</h4>
+        </div> <hr>
+
+            <form action="" method="post" novalidate>
+            {{form2.hidden_tag()}}
+              <h5> Marca : </h5>
+            {{form2.Col}}
+            {{form2.Col.label}}
+            <br>
+                {{form2.Cruc}}
+            {{form2.Cruc.label}}
+            <br> <hr>
+
+                <h5> Quantitá RAM : </h5>
+                {{form2.six}}
+                {{form2.six.label}}
+                <br>
+                {{form2.tree}}
+                {{form2.tree.label}}
+                <hr>
+
+                <h5> Clock RAM : </h5>
+                {{form2.treetwo}}
+                {{form2.treetwo.label}}
+                <br>
+                {{form2.treesix}}
+                {{form2.treesix.label}}
+                <hr>
+
+                <h5>Prezzo :</h5>
+            {{form2.minmonet}}
+            {{form2.maxmonet}}
+            <br>
+            {{form2.submitf}}
+
+            </form>
+    </div>
+ </div>
+
+<div class="text-center">
+             <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+            {{ form.search(size=60) }}
+            {{ form.submit(class_="btn btn-primary") }}
+                   </form>
+            <hr>
+           {%for x in queri %}
+            <h3> Nome: {{x[0]}}, Marca: {{x[1]}}, Costo: {{x[2]}} </h3>
+            <form action="" method="post" id="Button">
+                <input type="hidden" id="val" name="val" value="{{x[3]}}">
+                <button class="btn btn-secondary" type="submit" >Compra</button>
+            </form>
+            <hr>
+            {% endfor %}
+    </div>
+{% endblock %}
+
 </body>
 </html>
