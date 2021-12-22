@@ -57,7 +57,7 @@ class Trolley():
         CPU = self.trolley[0]
         MOBO = self.trolley[1]
         if CPU is not None and MOBO is not None:
-            if CPU[3] == MOBO[3]:
+            if CPU[4] == MOBO[4]:
                 return True
             else:
                 return False
