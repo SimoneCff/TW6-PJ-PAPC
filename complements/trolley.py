@@ -19,11 +19,11 @@ class Trolley():
             else:
                 if i == 0:
                     self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']),
-                                       dumps(Query['socket']),i)
+                                       i, dumps(Query['socket']))
                 else:
                     if i == 1:
-                        self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']),
-                                           dumps(Query['socket']), i, dumps(Query['clock-r']), dumps(Query['model']))
+                        self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']), i
+                                           ,dumps(Query['socket']), dumps(Query['clock-r']), dumps(Query['model']))
                     else:
                         if i == 2:
                             self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['clock']), i)
