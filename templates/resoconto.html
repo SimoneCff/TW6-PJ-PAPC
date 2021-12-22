@@ -22,6 +22,15 @@
 <div class="bg-primary bg-opacity-75">
     <img src="{{ url_for('static', filename='images/logo.png')}}" class="logo">
 </div>
+  {% block content %}
+<div>
+          {% for x in trolley %}
+             {% if x != None %}
+            <h3> Nome: {{x[0]}}, Costo: {{x[1]}} </h3>
+              {% endif %}
+          {% endfor %}}
+</div>
+{{% endblock %}}
 
 
 

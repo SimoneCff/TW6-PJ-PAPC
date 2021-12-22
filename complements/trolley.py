@@ -14,15 +14,26 @@ class Trolley():
         if i == 6:
             self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['model']), i)
         else:
-            if i == 2 or i == 7:
-                self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), None ,i)
+            if i == 7:
+                self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), None, i)
             else:
-                self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']), i)
-                if i != 5:
-                    watt = dumps(Query['Watt'])
-                    watt = watt.split('"', 1)[1]
-                    watt = watt.split('"', 1)[0]
-                    self.totalwatt += int(watt)
+                if i == 0:
+                    self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']),
+                                       dumps(Query['socket']), i)
+                else:
+                    if i == 1:
+                        self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']),
+                                           dumps(Query['socket']), dumps(Query['çlock-r']), i)
+                    else:
+                        if i == 2:
+                            self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['clock']), i)
+                        else:
+                            self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']), i)
+        if i != 5:
+            watt = dumps(Query['Watt'])
+            watt = watt.split('"', 1)[1]
+            watt = watt.split('"', 1)[0]
+            self.totalwatt += int(watt)
 
     def Remove(self, i):
         rem = self.trolley[i]
@@ -34,7 +45,32 @@ class Trolley():
 
     def SeeWatt(self):
         PSU = self.trolley[5]
-        if self.totalwatt < int(PSU[3]):
-            return True
+        if PSU is not None:
+            if self.totalwatt < int(PSU[3]):
+                return True
+            else:
+                return False
         else:
-            return False
+            return None
+
+    def SeeCompatibiltyCPU(self):
+        CPU = self.trolley[0]
+        MOBO = self.trolley[1]
+        if CPU is not None and MOBO is not None:
+            if CPU[3] == MOBO[3]:
+                return True
+            else:
+                return False
+        else :
+            return None
+
+    def SeeCompatibiltyRAM(self):
+        MOBO = self.trolley[1]
+        RAM = self.trolley[2]
+        if RAM is not None and MOBO is not None:
+            if RAM[2] == MOBO[4]:
+                return True
+            else:
+                return False
+        else:
+            return None
