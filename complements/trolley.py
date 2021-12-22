@@ -14,7 +14,7 @@ class Trolley():
         if i == 6:
             self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['model']), i)
         else:
-            if i == 2:
+            if i == 2 or i == 7:
                 self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO'],i))
             else:
                 self.trolley[i] = (dumps(Query['name']), dumps(Query['COSTO']), dumps(Query['Watt']), i)
