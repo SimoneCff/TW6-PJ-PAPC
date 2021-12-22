@@ -33,8 +33,25 @@
              {% endif %}
            {% endfor %}
             </div>
+        <form action="" method="post">
+            <input type="hidden" id="check" name="check">
+         <button class="btn btn-primary" type="submit"><div>Checkout</div></button>
+        </form>
+        {%if right == True%}
+         {%if psu == False %}
+          <h5> Attenzione PSU Troppo poco potente!</h5>
+          {%endif%}
+          {%if cpu == False %}
+           <h5> Attenzione CPU Non Compatibile con Scheda Madre !</h5>
+          {%endif%}
+          {%if case == False %}
+          <h5> Attenzione Case Non Compatibile !</h5>
+          {%endif%}
+          {%if ram == False %}
+          <h5> Attenzione RAM non compativbile con la Scheda Madre !</h5>
+           {%endif%}
+        {%endif%}
         {% endblock %}
-        <button class="btn btn-primary type="button"><div>Checkout</div></button>
     </div>
 </body>
 </html>
