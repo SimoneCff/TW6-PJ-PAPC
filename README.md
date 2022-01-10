@@ -42,5 +42,5 @@ python -m pip install Pymongo[srv]
 ## MongoDB
 inside the [db.py][db.py] file you can see a MONGODB text, replace it with your link from the MonboDB Atlas (Ex: mongodb+srv://<username>:<password>@youdn/youdb)
 
-You can use for Example or else the dump from The MongoDb Server that we used for the creation of this project:
+You can use for Examplethe dump from The MongoDb Server that we used for the creation of this project:
 [PAPC.zip](PAPC.zip)
